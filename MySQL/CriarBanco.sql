@@ -140,7 +140,15 @@ select * from bdestoque.rlinsumoresponsavel;
 select 
 		L.nmLocal,
         L.nrLocal
-  from 	bdestoque.tblLocal L
+  from 	bdestoque.tblLocal L;
+  
+		select 
+				i.nmInsumos,
+                l.nmLocal
+		  from 
+				bdestoque.tblInsumos i
+    inner join 	bdestoque.rlInsumosLocal ri on i.pkInsumos = ri.fkInsumos
+	inner join	bdestoque.tblLocal l on l.pkLocal = ri.fkLocal
   
 
 #alter table bdestoque.tblQuantidade
