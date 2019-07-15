@@ -137,6 +137,12 @@ select * from bdestoque.rltipoinsumoquantidade;
 select * from bdestoque.rlfotoinsumo;
 select * from bdestoque.rlinsumoresponsavel;
 
+select 
+		L.nmLocal,
+        L.nrLocal
+  from 	bdestoque.tblLocal L
+  
+
 #alter table bdestoque.tblQuantidade
 #change nrQuantidadeAtual nrQuantidadeInserida float
 -- add column nrLocal varcharacter(10);
