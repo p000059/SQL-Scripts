@@ -14,6 +14,6 @@ BEGIN
 		     where		
 					pkCodigo = upd_pkCodigo;         
          else
-				select 'O número de patrimônio e o código de série deve ser fornecidos!' as Atenção;
+				select 'O número de patrimônio e o código de série devem ser fornecidos!' as Atenção;
          end if;
 END
