@@ -1,8 +1,27 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `spTeste`(out p_rv1 int)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spInsereCodigo`(
+	
+    out	id_pkCodigoGerado			int,
+    in	p_nrCodigoPatrimonio		varchar(20),
+    in	p_srCodigoSerie				varchar(50)    
+)
 BEGIN
-		declare rv1 int;
+	if((p_nrCodigoPatrimonio != '')&&(p_srCodigoSerie != '')) then
         
-        set rv1 = 1000;
-        
-        set p_rv1 = rv1;
+		INSERT INTO 
+			bdestoque.tblCodigo (
+									#pkCodigo,
+                                    nrCodigoPatrimonio,
+									srCodigoSerie			
+								) 
+			 VALUES	(
+						#null,
+                        p_nrCodigoPatrimonio,
+						p_srCodigoSerie					
+					);
+				set id_pkCodigoGerado = last_insert_id();
+	else
+			select 'O código do patrimônio e código de série devem ser fornecidos!' as Atenção;
+	end if;
+    
+    
 END
