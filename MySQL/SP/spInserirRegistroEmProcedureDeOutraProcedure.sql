@@ -2,8 +2,10 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `spInsererlInsumoCodigo`(
 		
         #in	id_fkInsumo 			int,
         #in  id_fkCodigo			int,
-        #in	p_nmInsumos				varchar(100),
-		#in	p_nrInsumos				varchar(50),
+        in	p_nmInsumos				varchar(100),
+		in	p_nrInsumos				varchar(50),
+        in	p_nrCodigoPatrimonio	varchar(20),
+        in	p_srCodigoSerie			varchar(50)
         #in  p_dtInsercao			varchar(14),
         #in	p_dtExclusao			varchar(14),
         #in	p_dtInclusaoOperacao	varchar(14),
@@ -12,11 +14,15 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `spInsererlInsumoCodigo`(
 BEGIN
 		#declare p_nrTeste int;
         #set p_nrTeste = spTeste();
-		call spTeste(@var1);
+		call spInsereInsumos(@var1,p_nmInsumos,p_nrInsumos);
         select @var1;
         
-        insert into bdestoque.tblTeste(nrTeste)
-        values(@var1);
+        call spInsereCodigo(@var2,p_nrCodigoPatrimonio,p_srCodigoSerie);
+        select @var2;
+        
+        insert into bdestoque.rlInsumoCodigo(fkInsumos, fkCodigo)
+        values(@var1, @var2);
+        
               
         
         #insert into bdestoque.tblInsumos
