@@ -150,9 +150,10 @@ select
     inner join 	bdestoque.rlInsumosLocal ri on i.pkInsumos = ri.fkInsumos
 	inner join	bdestoque.tblLocal l on l.pkLocal = ri.fkLocal;
   
-
-#alter table bdestoque.tblusuariosenha
-#engine = innodb;
+  
+  
+-- alter table bdestoque.rlinsumocodigo
+-- modify column dtInclusaoOperacao varchar(14)
 
 -- add column nrLocal varcharacter(10);
 
