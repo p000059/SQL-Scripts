@@ -1,4 +1,4 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `spInsererlInsumoCodigo`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spInserirInsumoCodigo`(
 		
         in	p_nmInsumos				varchar(100),
 		in	p_nrInsumos				varchar(50),
@@ -24,7 +24,9 @@ BEGIN
         select 
 				@var2;
         begin
-			
+			#if((@var2 != 0)and())then
+            #else
+            #end if;
 			insert into bdestoque.rlInsumoCodigo(
 						
 						fkInsumos, 
