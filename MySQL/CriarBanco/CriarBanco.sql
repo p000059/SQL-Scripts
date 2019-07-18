@@ -3,16 +3,22 @@ use BDESTOQUE;
 
 create table bdestoque.tblInsumos
 (
-	pkInsumos 	int not null primary key auto_increment unique,
-	nmInsumos 	varcharacter(100),
-	nrInsumo 	varcharacter(10),
-    `status` 	bool not null
+	pkInsumo 			int not null primary key auto_increment unique,
+	nmInsumo 			varcharacter(100),
+	nrInsumo 			varcharacter(10),
+    dtInclusaoInsumo 	timestamp not null default current_timestamp(),
+    dtExclusaoInsumo 	timestamp default current_timestamp(),
+    `status` 			bool not null
 )engine = innodb;
 
 create table bdestoque.tblLocal
 (
-	pkLocal int not null primary key auto_increment unique,
-	nmLocal varcharacter(50)
+	pkLocal 			int not null primary key auto_increment unique,
+	nmLocal 			varchar(50),
+    nrLocal				varchar(10),
+    dtInclusaoLocal 	timestamp not null default current_timestamp(),
+    dtExclusaoLocal 	timestamp default current_timestamp(),
+    `status` 			bool not null
 )engine = innodb;
 
 create table bdestoque.tblCodigo
@@ -94,14 +100,14 @@ create table bdestoque.rlTipoInsumoQuantidade
 
 create table bdestoque.rlInsumosLocal
 (
-	fkLocal int not null unique,
-	fkInsumos int not null unique,
-    dtInsercao varchar(8),
-	dtExclusao varchar(8),
-	dtInclusaoOperacao varchar(8),
-	dtExclusaoOperacao varchar(8),
-	constraint fk_Local_for_pkLocal foreign key (fkLocal) references bdestoque.tblLocal (pkLocal),
-	constraint fk_Insumo_for_pkInsumos foreign key (fkInsumos) references bdestoque.tblInsumos (pkInsumos)
+	fkLocal 			int not null unique,
+	fkInsumos 			int not null unique,
+    dtInclusao 			timestamp not null default current_timestamp(),
+	dtExclusao 			timestamp not null default current_timestamp(),
+	dtInclusaoOperacao 	timestamp not null default current_timestamp(),
+	dtExclusaoOperacao 	timestamp not null default current_timestamp(),
+						constraint fk_Local_for_pkLocal foreign key (fkLocal) references bdestoque.tblLocal (pkLocal),
+						constraint fk_Insumo_for_pkInsumos foreign key (fkInsumos) references bdestoque.tblInsumos (pkInsumos)
 )engine = innodb;
 
 create table bdestoque.rlFotoInsumo
@@ -127,32 +133,37 @@ create table tblUsuarioSenha
     dtExclusaoOp varchar(8)    
 )engine = innodb;
 
-select * from bdestoque.tblcodigo;
-select * from bdestoque.tblInsumos;
-select * from bdestoque.tblftinsumo;
-select * from bdestoque.tblresponsavel;
-select * from bdestoque.tbllocal;
-select * from bdestoque.tblquantidade;
-select * from bdestoque.tbltipo;
-select * from bdestoque.rlinsumocodigo;
-select * from bdestoque.rlinsumoslocal;
-select * from bdestoque.rltipoinsumoquantidade;
-select * from bdestoque.rlfotoinsumo;
-select * from bdestoque.rlinsumoresponsavel;
+-- select * from bdestoque.tblcodigo;
+-- select * from bdestoque.tblInsumos;
+-- select * from bdestoque.tblftinsumo;
+-- select * from bdestoque.tblresponsavel;
+-- select * from bdestoque.tbllocal;
+-- select * from bdestoque.tblquantidade;
+-- select * from bdestoque.tbltipo;
+-- select * from bdestoque.rlinsumocodigo;
+-- select * from bdestoque.rlinsumoslocal;
+-- select * from bdestoque.rltipoinsumoquantidade;
+-- select * from bdestoque.rlfotoinsumo;
+-- select * from bdestoque.rlinsumoresponsavel;
 
-		select 
-				i.nmInsumos 		 as 'Nome do Insumo',
-                i.nrInsumos 		 as 'Nº de Insumos',
-                c.nrCodigoPatrimonio as 'Nº do Patrimônio',
-                c.srCodigoSerie		 as 'N/S',
-                ric.dtInsercao		 as 'Data de Cadastro'
-		  from 
-				bdestoque.tblInsumos 	 i
-    inner join 	bdestoque.rlInsumoCodigo ric on i.pkInsumos = ric.fkInsumos
-	inner join	bdestoque.tblCodigo 	 c	 on c.pkCodigo  = ric.fkCodigo
-		 where
-				i.nmInsumos like 'Copo';
+		-- select 
+-- 				i.nmInsumos 		 as 'Nome do Insumo',
+--                 i.nrInsumos 		 as 'Nº de Insumos',
+--                 c.nrCodigoPatrimonio as 'Nº do Patrimônio',
+--                 c.srCodigoSerie		 as 'N/S',
+--                 ric.dtInsercao		 as 'Data de Cadastro'
+-- 		  from 
+-- 				bdestoque.tblInsumos 	 i
+--     inner join 	bdestoque.rlInsumoCodigo ric on i.pkInsumos = ric.fkInsumos
+-- 	inner join	bdestoque.tblCodigo 	 c	 on c.pkCodigo  = ric.fkCodigo
+-- 		 where
+-- 				i.nmInsumos like 'Copo';
                 
+-- alter table bdestoque.rlInsumosLocal
+-- change dtInsercao dtInclusao timestamp
+-- modify dtExclusao timestamp not null default current_timestamp(),
+-- modify dtInclusaoOperacao timestamp not null default current_timestamp(),
+-- modify dtExclusaoOperacao timestamp not null default current_timestamp();
 
 -- alter table bdestoque.rlInsumoCodigo
 -- modify dtInsercao timestamp not null default current_timestamp();                
