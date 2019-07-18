@@ -3,9 +3,10 @@ use BDESTOQUE;
 
 create table bdestoque.tblInsumos
 (
-	pkInsumos int not null primary key auto_increment unique,
-	nmInsumos varcharacter(100),
-	nrInsumo varcharacter(10)
+	pkInsumos 	int not null primary key auto_increment unique,
+	nmInsumos 	varcharacter(100),
+	nrInsumo 	varcharacter(10),
+    `status` 	bool not null
 )engine = innodb;
 
 create table bdestoque.tblLocal
@@ -16,16 +17,18 @@ create table bdestoque.tblLocal
 
 create table bdestoque.tblCodigo
 (
-	pkCodigo int not null primary key auto_increment unique,
-	nrCodigoPatrimonio varcharacter(20),
-	srCodigoSerie varcharacter(50)
+	pkCodigo 			int not null primary key auto_increment unique,
+	nrCodigoPatrimonio 	varcharacter(20),
+	srCodigoSerie 		varcharacter(50),
+    `status` 			bool not null
 )engine = innodb;
 
 create table bdestoque.tblResponsavel
 (
 	pkResponsavel int not null primary key auto_increment unique,
 	nmResponsavel varcharacter(50),
-	nrResponsavelMatricula varcharacter(10)	
+	nrResponsavelMatricula varcharacter(10),
+	`status` 	bool not null
 )engine = innodb;
 
 create table bdestoque.tblftInsumo
@@ -55,24 +58,24 @@ create table bdestoque.rlInsumoCodigo
 (
 	fkInsumos 			int not null unique,
 	fkCodigo 			int not null unique,
-    dtInsercao 			datetime,
-    dtExclusao 			datetime,
-    dtInclusaoOperacao 	datetime,
-    dtExclusaoOperacao 	datetime,
+    dtInsercao 			timestamp not null default current_timestamp(),
+    dtExclusao 			timestamp not null default current_timestamp(),
+    dtInclusaoOperacao 	timestamp not null default current_timestamp(),
+    dtExclusaoOperacao 	timestamp not null default current_timestamp(),
 						constraint fk_Insumos_for_pkInsumos foreign key (fkInsumos) references bdestoque.tblInsumos (pkInsumos),
 						constraint fk_Codigo_for_pkCodigo 	foreign key (fkCodigo) 	references bdestoque.tblCodigo 	(pkCodigo)
 )engine = innodb;
 
 create table bdestoque.rlInsumoResponsavel
 (
-	fkInsumos int not null unique,
-	fkResponsavel int not null unique,
-    dtInsercao varchar(8),
-	dtExclusao varchar(8),
-    dtInclusaoOperacao varchar(8),
-    dtExclusaoOperacao varchar(8),
-	constraint fk_Insumo_for_tblPkInsumos foreign key (fkInsumos) references bdestoque.tblinsumos (pkInsumos),
-	constraint fk_Responsavel_for_pkResponsavel foreign key (fkResponsavel) references bdestoque.tblResponsavel (pkResponsavel)
+	fkInsumos 			int not null unique,
+	fkResponsavel 		int not null unique,
+    dtInsercao 			timestamp not null default current_timestamp(),
+	dtExclusao 			timestamp not null default current_timestamp(),
+	dtInclusaoOperacao 	timestamp not null default current_timestamp(),
+	dtExclusaoOperacao 	timestamp not null default current_timestamp(),
+						constraint fk_Insumo_for_tblPkInsumos foreign key (fkInsumos) references bdestoque.tblinsumos (pkInsumos),
+						constraint fk_Responsavel_for_pkResponsavel foreign key (fkResponsavel) references bdestoque.tblResponsavel (pkResponsavel)
 )engine = innodb;
 
 create table bdestoque.rlTipoInsumoQuantidade
@@ -137,24 +140,12 @@ select * from bdestoque.rltipoinsumoquantidade;
 select * from bdestoque.rlfotoinsumo;
 select * from bdestoque.rlinsumoresponsavel;
 
--- select 
--- 		L.nmLocal,
---         L.nrLocal
---   from 	bdestoque.tblLocal L;
---   
--- 		select 
--- 				i.nmInsumos,
---                 l.nmLocal
--- 		  from 
--- 				bdestoque.tblInsumos i
---     inner join 	bdestoque.rlInsumosLocal ri on i.pkInsumos = ri.fkInsumos
--- 	inner join	bdestoque.tblLocal l on l.pkLocal = ri.fkLocal;
-
 		select 
 				i.nmInsumos 		 as 'Nome do Insumo',
                 i.nrInsumos 		 as 'Nº de Insumos',
                 c.nrCodigoPatrimonio as 'Nº do Patrimônio',
-                c.srCodigoSerie		 as 'N/S'
+                c.srCodigoSerie		 as 'N/S',
+                ric.dtInsercao		 as 'Data de Cadastro'
 		  from 
 				bdestoque.tblInsumos 	 i
     inner join 	bdestoque.rlInsumoCodigo ric on i.pkInsumos = ric.fkInsumos
@@ -162,6 +153,10 @@ select * from bdestoque.rlinsumoresponsavel;
 		 where
 				i.nmInsumos like 'Copo';
                 
+
+-- alter table bdestoque.rlInsumoCodigo
+-- modify dtInsercao timestamp not null default current_timestamp();                
+
 -- alter table tblTeste              
 -- modify dtTeste datetime;
 
