@@ -53,14 +53,14 @@ create table bdestoque.tblQuantidade
 
 create table bdestoque.rlInsumoCodigo
 (
-	fkInsumos int not null unique,
-	fkCodigo int not null unique,
-    dtInsercao varchar(8),
-    dtExclusao varchar(8),
-    dtInclusaoOperacao varchar(8),
-    dtExclusaoOperacao varchar(8),
-	constraint fk_Insumos_for_pkInsumos foreign key (fkInsumos) references bdestoque.tblInsumos (pkInsumos),
-	constraint fk_Codigo_for_pkCodigo foreign key (fkCodigo) references bdestoque.tblCodigo (pkCodigo)
+	fkInsumos 			int not null unique,
+	fkCodigo 			int not null unique,
+    dtInsercao 			datetime,
+    dtExclusao 			datetime,
+    dtInclusaoOperacao 	datetime,
+    dtExclusaoOperacao 	datetime,
+						constraint fk_Insumos_for_pkInsumos foreign key (fkInsumos) references bdestoque.tblInsumos (pkInsumos),
+						constraint fk_Codigo_for_pkCodigo 	foreign key (fkCodigo) 	references bdestoque.tblCodigo 	(pkCodigo)
 )engine = innodb;
 
 create table bdestoque.rlInsumoResponsavel
@@ -160,8 +160,22 @@ select * from bdestoque.rlinsumoresponsavel;
     inner join 	bdestoque.rlInsumoCodigo ric on i.pkInsumos = ric.fkInsumos
 	inner join	bdestoque.tblCodigo 	 c	 on c.pkCodigo  = ric.fkCodigo
 		 where
-				i.nmInsumos like 'Copo'  
-  
+				i.nmInsumos like 'Copo';
+                
+-- alter table tblTeste              
+-- modify dtTeste datetime;
+
+-- select * from bdestoque.tblTeste;
+
+-- insert into bdestoque.tblTeste(nrTeste, dtTeste)
+-- values('2000', curdate()); 
+
+-- alter table bdestoque.rlinsumocodigo
+-- modify dtInsercao datetime,
+-- modify dtExclusao datetime,
+-- modify dtInclusaoOperacao datetime,
+-- modify dtExclusaoOperacao dateTime
+
   
 -- alter table bdestoque.rlinsumocodigo
 -- modify column dtInclusaoOperacao varchar(14)
