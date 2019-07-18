@@ -156,9 +156,9 @@ select * from bdestoque.rlinsumoresponsavel;
                 c.nrCodigoPatrimonio as 'Nº do Patrimônio',
                 c.srCodigoSerie		 as 'N/S'
 		  from 
-				bdestoque.tblInsumos i
+				bdestoque.tblInsumos 	 i
     inner join 	bdestoque.rlInsumoCodigo ric on i.pkInsumos = ric.fkInsumos
-	inner join	bdestoque.tblCodigo c on c.pkCodigo = ric.fkCodigo
+	inner join	bdestoque.tblCodigo 	 c	 on c.pkCodigo  = ric.fkCodigo
 		 where
 				i.nmInsumos like 'Copo'  
   
