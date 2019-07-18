@@ -137,19 +137,30 @@ select * from bdestoque.rltipoinsumoquantidade;
 select * from bdestoque.rlfotoinsumo;
 select * from bdestoque.rlinsumoresponsavel;
 
-select 
-		L.nmLocal,
-        L.nrLocal
-  from 	bdestoque.tblLocal L;
-  
+-- select 
+-- 		L.nmLocal,
+--         L.nrLocal
+--   from 	bdestoque.tblLocal L;
+--   
+-- 		select 
+-- 				i.nmInsumos,
+--                 l.nmLocal
+-- 		  from 
+-- 				bdestoque.tblInsumos i
+--     inner join 	bdestoque.rlInsumosLocal ri on i.pkInsumos = ri.fkInsumos
+-- 	inner join	bdestoque.tblLocal l on l.pkLocal = ri.fkLocal;
+
 		select 
-				i.nmInsumos,
-                l.nmLocal
+				i.nmInsumos 		 as 'Nome do Insumo',
+                i.nrInsumos 		 as 'Nº de Insumos',
+                c.nrCodigoPatrimonio as 'Nº do Patrimônio',
+                c.srCodigoSerie		 as 'N/S'
 		  from 
 				bdestoque.tblInsumos i
-    inner join 	bdestoque.rlInsumosLocal ri on i.pkInsumos = ri.fkInsumos
-	inner join	bdestoque.tblLocal l on l.pkLocal = ri.fkLocal;
-  
+    inner join 	bdestoque.rlInsumoCodigo ric on i.pkInsumos = ric.fkInsumos
+	inner join	bdestoque.tblCodigo c on c.pkCodigo = ric.fkCodigo
+		 where
+				i.nmInsumos like 'Copo'  
   
   
 -- alter table bdestoque.rlinsumocodigo
