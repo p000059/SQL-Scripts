@@ -107,3 +107,17 @@ create table rlInsumosLocal
 						constraint    fkInsumo_for_pkInsumo3  foreign key (fkInsumo)  references tblInsumos (pkInsumo)
 );
 
+create table tblUser
+(
+	pkUser				int not null identity primary key,
+	nmUser				varchar(50),
+	cdUser				varchar(7),
+	pwUser				varchar(15),
+	dtInclusaoUser		smalldatetime,
+	dtExclusaoUser		smalldatetime,
+	statusUser			bit not null,
+						constraint c_nmUser unique (nmUser),
+						constraint c_cdUser unique (cdUser),
+						constraint c_pwUser unique (pwUser)						
+);
+
