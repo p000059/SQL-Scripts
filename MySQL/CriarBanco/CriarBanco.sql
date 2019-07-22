@@ -168,10 +168,11 @@ create table tblUsuarioSenha
 -- alter table bdestoque.rlInsumoCodigo
 -- modify dtInsercao timestamp not null default current_timestamp();                
 
--- alter table tblTeste              
+-- alter table bdestoque.tblcodigo
+-- add column statusCodigo bool not null
 -- modify dtTeste datetime;
 
--- select * from bdestoque.tblTeste;
+-- select * from bdestoque.tblCodigo;
 
 -- insert into bdestoque.tblTeste(nrTeste, dtTeste)
 -- values('2000', curdate()); 
