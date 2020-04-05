@@ -1,0 +1,200 @@
+USE NEWBDSISADE
+
+
+CREATE TABLE tblChamado
+(
+	pkChamado					int not null primary key identity,
+	nrChamado					varchar(12) not null,
+	dsChamado					nvarchar(2000) not null,		
+	fkPessoaSISCADAbertura		int,
+	fkPessaoSISCADFechamento	int
+)
+
+CREATE TABLE tblPrioridade
+(
+	pkPrioridade	int not null primary key identity,
+	nmPrioridade	varchar(20) not null,
+	dsPrioridade	varchar(255) not null,
+	stPrioridade	bit not null
+)
+
+CREATE TABLE rlChamadoPrioridade
+(
+	fkChamado		int not null,
+	fkPrioridade	int not null,
+	dtOperacao		varchar(14),
+	fkPessoaSISCADOperacao int
+
+	constraint fkChamadotblChamado_fkChamadorlChamadoPrioridade foreign key (fkChamado) references tblChamado(pkChamado),
+	constraint fkPrioridadetblPrioridade_fkPrioridaderlChamadoPrioridade foreign key (fkPrioridade) references tblPrioridade(pkPrioridade)
+)
+
+CREATE TABLE tblImpacto
+(
+	pkImpacto	int not null primary key identity,
+	nmImpacto	varchar(20) not null,
+	dsImpacto	nvarchar(255) not null	
+)
+
+CREATE TABLE rlChamadoImpacto
+(
+	fkChamado	int not null,
+	fkImpacto	int not null,
+	dtOperacao	varchar(14),
+	fkPessoaSISCADOperacao int
+
+	constraint fkChamadotblChamado_fkChamadorlChamadoImpacto foreign key (fkChamado) references tblChamado(pkChamado),
+	constraint fkImpactotblImpacto_fkImpactorlChamadoImpacto foreign key (fkImpacto) references tblImpacto(pkImpacto)
+)
+
+CREATE TABLE tblTipoChamado
+(
+	pkTipoChamado int not null primary key identity,
+	nmTipoChamado varchar(20) not null,
+	dsTipoChamado varchar(255) not null
+)
+
+CREATE TABLE rlChamadoTipoChamado
+(
+	fkChamado		int not null,
+	fkTipoChamado	int not null,
+	dtOperacao		varchar(14),
+	fkPessoaSISCADOperacao int
+
+	constraint fkChamadotblChamado_fkChamadorlChamadoTipoChamado foreign key (fkChamado) references tblChamado(pkChamado),
+	constraint fkTipoChamadotblTipoChamado_fkTipoChamadorlChamadoTipoChamado foreign key (fkTipoChamado) references tblTipoChamado(pkTipoChamado)
+)
+
+CREATE TABLE tblItemConfiguracao
+(
+	pkItemConfiguracao int not null primary key identity,
+	nmItemConfiguracao varchar(30) not null,
+	dsItemConfiguracao varchar(255) not null,
+	stItemConfiguracao bit not null
+)
+
+CREATE TABLE rlChamadoItemConfiguracao
+(
+	fkChamado			int not null,
+	fkItemConfiguracao	int not null,
+	dtOperacao			varchar(14),
+	fkPessoaSISCADOperacao int
+
+	constraint fkChamadorlChamadoItemConfiguracao_pkChamadotblChamado foreign key (fkChamado) references tblChamado(pkChamado),
+	constraint fkItemConfiguracaorlChamadoItemConfiguracao_pkItemConfiguracaotblItemConfiguracao foreign key (fkItemConfiguracao) references tblItemConfiguracao(pkItemConfiguracao)
+)
+
+
+CREATE TABLE tblPrazo
+(
+	pkPrazo		int not null primary key identity,
+	nmPrazo		varchar(30),
+	dsPrazo		nvarchar(255),
+	dtInclusao	char(14),
+	stPrazo		bit not null
+)
+
+CREATE TABLE rlChamadoPrazo
+(
+	fkChamado	int not null,
+	fkPrazo		int not null,
+	dtOperacao	varchar(14),
+	fkPessoaSISCADOperacao int
+
+	constraint fkChamadorlChamadoPrazo_pkChamadotblChamado foreign key (fkChamado) references tblChamado(pkChamado),
+	constraint fkPrazorlChamadoPrazo_pkPrazotblPrazo foreign key (fkPrazo) references tblPrazo(pkPrazo)
+)
+
+CREATE TABLE tblSituacao
+(
+	pkSituacao int not null primary key identity,
+	nmSituacao varchar(50),
+	dsSituacao varchar(50)
+)
+
+CREATE TABLE rlChamadoSituacao
+(
+	fkChamado				int not null,
+	fkSituacao				int not null,
+	dtOperacao				varchar(14),	
+	fkPessoaSISCADOperacao	int
+
+	constraint fkChamadorlChamadoStatus_pkChamadotblChamado foreign key (fkChamado) references tblChamado(pkChamado),
+	constraint fkSituacaorlChamadoSituacao_pkSituacaotblStatus foreign key (fkSituacao) references tblSituacao(pkSituacao)
+)
+
+CREATE TABLE tblIncidente
+(
+	pkIncidente int not null primary key identity,
+	nmIncidente varchar(30),
+	dsIncidente nvarchar(100)
+)
+
+
+CREATE TABLE rlChamadoIncidente
+(
+	fkChamado	int not null,
+	fkIncidente	int not null,
+	dtOperacao	varchar(14),
+	fkPessoaSISCADOperacao int
+
+	constraint fkChamadorlChamadoIncidente_pkChamadotblChamado foreign key (fkChamado) references tblChamado(pkChamado),
+	constraint fkIncidenterlChamadoIncidente_pkIncidentetblIncidente foreign key (fkIncidente) references tblIncidente(pkIncidente)
+)
+
+
+CREATE TABLE tblAtividade
+(
+	pkAtividade int not null primary key identity,
+	nmAtividade varchar(12),
+	dsAtividade varchar(2000)
+)
+
+
+CREATE TABLE rlChamadoAtividade
+(
+	fkChamado	int not null,
+	fkAtividade int not null,
+	dtOperacao	varchar(14),
+	fkPessoaSISCADOperacao int
+
+	constraint fkChamadorlChamadoAtividade_pkChamadotblChamado foreign key (fkChamado) references tblChamado(pkChamado),
+	constraint fkAtividaderlChamadoAtividade_pkAtividadetblAtividade foreign key (fkAtividade) references tblAtividade(pkAtividade)
+)
+
+
+CREATE TABLE tblCategoria
+(
+	pkCategoria int not null primary key identity,
+	nmCategoria varchar(30),
+	dsCategoria varchar(255),
+	stCategoria bit not null
+)
+
+
+CREATE TABLE rlChamadoCategoria
+(
+	fkChamado	int not null,
+	fkCategoria	int not null,
+	dtOperacao	varchar(14),
+	fkPessoaSISCADOperacao	int
+
+	constraint fkChamadorlChamadoCategoria_pkChamadotblChamado foreign key (fkChamado) references tblChamado(pkChamado),
+	constraint fkCategoriarlChamadoCategoria_pkCategoriatblCategoria foreign key (fkCategoria) references tblCategoria(pkCategoria)
+)
+
+
+CREATE TABLE rlChamadoArquivo
+(
+	fkChamado			int not null,
+	fkArquivoBDARQUIVO	int,
+	dtOperacao			varchar(14),
+	fkPessoaSISCADOperacao int
+
+	CONSTRAINT fkChamadorlChamadoPessoa_pkChamadotblChamado FOREIGN KEY (fkChamado) REFERENCES tblChamado(pkChamado)
+)
+
+
+
+
+
