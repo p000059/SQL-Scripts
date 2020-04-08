@@ -1,3 +1,5 @@
+CREATE DATABASE NEWBDSISADE
+
 USE NEWBDSISADE
 
 
@@ -33,8 +35,10 @@ CREATE TABLE tblImpacto
 (
 	pkImpacto	int not null primary key identity,
 	nmImpacto	varchar(20) not null,
-	dsImpacto	nvarchar(255) not null	
+	dsImpacto	nvarchar(255) not null,
+	stImpacto	bit not null
 )
+
 
 CREATE TABLE rlChamadoImpacto
 (
@@ -47,23 +51,6 @@ CREATE TABLE rlChamadoImpacto
 	constraint fkImpactotblImpacto_fkImpactorlChamadoImpacto foreign key (fkImpacto) references tblImpacto(pkImpacto)
 )
 
-CREATE TABLE tblTipoChamado
-(
-	pkTipoChamado int not null primary key identity,
-	nmTipoChamado varchar(20) not null,
-	dsTipoChamado varchar(255) not null
-)
-
-CREATE TABLE rlChamadoTipoChamado
-(
-	fkChamado		int not null,
-	fkTipoChamado	int not null,
-	dtOperacao		varchar(14),
-	fkPessoaSISCADOperacao int
-
-	constraint fkChamadotblChamado_fkChamadorlChamadoTipoChamado foreign key (fkChamado) references tblChamado(pkChamado),
-	constraint fkTipoChamadotblTipoChamado_fkTipoChamadorlChamadoTipoChamado foreign key (fkTipoChamado) references tblTipoChamado(pkTipoChamado)
-)
 
 CREATE TABLE tblItemConfiguracao
 (
@@ -195,6 +182,36 @@ CREATE TABLE rlChamadoArquivo
 )
 
 
+CREATE TABLE tblAvaliacao
+(
+	pkAvaliacao					int not null primary key identity,
+	dsAvaliacaoAgilidade		varchar(20),
+	dsAvaliacaoTempo			varchar(20),
+	dsAvaliacaoComportamento	varchar(20),
+	dsAvaliacaoComentario		varchar(600),
+	dsAvaliacaoCriticaSugestao	varchar(600),
+	dtAvaliacao					varchar(14)
+)
+
+CREATE TABLE rlChamadoAvaliacao
+(
+	fkChamado	int not null,
+	fkAvaliacao	int not null
+
+	CONSTRAINT fkChamadorlChamadoAvaliacao_pkChamadotblChamado FOREIGN KEY (fkChamado) REFERENCES tblChamado(pkChamado),
+	CONSTRAINT fkAvaliacaorlChamadoAvaliacao_pkAvaliacaotblAvaliacao FOREIGN KEY (fkAvaliacao) REFERENCES tblAvaliacao(pkAvaliacao)
+)
 
 
+CREATE TABLE tblGrupo
+(
+	pkGrupo		int not null primary key identity,
+	nmGrupo		varchar(30),
+	dsGrupo		varchar(200),
+	stGrupo		bit not null
+)
 
+CREATE TABLE rlChamadoGRUPO
+(
+	fkGRUPO
+)
