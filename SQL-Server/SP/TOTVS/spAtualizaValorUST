@@ -1,0 +1,19 @@
+-- =============================================
+-- Author:		Marcelo Guima
+-- Create date: 18/04/2020
+-- Description:	Atualiza tblValorUST
+-- =============================================
+CREATE PROCEDURE spAtualizaValorUST
+(
+	@pkValorUST int,
+	@vlUST int,
+	@stValorUST float
+)
+AS
+BEGIN
+	UPDATE	tblValorUST
+	SET		vlUST = @vlUST,
+			stValorUST = @stValorUST
+	WHERE	pkValorUST = @pkValorUST
+END
+GO
