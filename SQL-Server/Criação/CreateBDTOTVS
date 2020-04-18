@@ -56,14 +56,21 @@ CREATE TABLE tblFatorUST
 (
 	pkFatorUST	int not null primary key identity,
 	ftFatorUST	float null,
-	stFatorUST	bit not null
+	stFatorUST	bit not null,
+	dtInicio	datetime,
+	dtAtualizacao datetime,
+	dtFim		datetime
 )
+
 
 CREATE TABLE tblValorUST
 (
 	pkValorUST	int not null primary key identity,
 	vlUST		float null,
-	stValorUST	bit not null
+	stValorUST	bit not null,
+	dtInicio	datetime,
+	dtAtualizacao datetime,
+	dtFim		datetime
 )
 
 
