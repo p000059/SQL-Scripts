@@ -3,7 +3,7 @@
 -- Create date: 18/04/2020
 -- Description:	Atualiza tblValorUST
 -- =============================================
-CREATE PROCEDURE spAtualizaValorUST
+ALTER PROCEDURE [dbo].[spUpdatetblValorUST]
 (
 	@pkValorUST int,
 	@vlUST int
@@ -11,7 +11,7 @@ CREATE PROCEDURE spAtualizaValorUST
 AS
 BEGIN
 	UPDATE	tblValorUST
-	SET		vlUST = @vlUST			
+	SET		vlUST = @vlUST,
+			dtAtualizacao = GETDATE()
 	WHERE	pkValorUST = @pkValorUST
 END
-GO
