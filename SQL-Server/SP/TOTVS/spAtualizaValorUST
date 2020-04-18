@@ -6,14 +6,12 @@
 CREATE PROCEDURE spAtualizaValorUST
 (
 	@pkValorUST int,
-	@vlUST int,
-	@stValorUST float
+	@vlUST int
 )
 AS
 BEGIN
 	UPDATE	tblValorUST
-	SET		vlUST = @vlUST,
-			stValorUST = @stValorUST
+	SET		vlUST = @vlUST			
 	WHERE	pkValorUST = @pkValorUST
 END
 GO
