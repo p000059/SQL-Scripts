@@ -1,0 +1,16 @@
+-- =============================================
+-- Author:		Marcelo Guima
+-- Create date: 18/04/2020
+-- Description:	Inativa Registro na tblValorUST
+-- =============================================
+ALTER PROCEDURE [dbo].[spDeleteValorUST] 
+(
+	@pkValorUST	int
+)
+AS
+BEGIN
+	UPDATE	tblValorUST
+	SET		stValorUST = 0,
+			dtFim = GETDATE()
+	WHERE	pkValorUST = @pkValorUST
+END
