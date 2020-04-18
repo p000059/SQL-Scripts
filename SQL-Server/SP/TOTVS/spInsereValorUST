@@ -3,16 +3,17 @@
 -- Create date: 18/04/2020
 -- Description:	Insere valor na tblValorUST
 -- =============================================
-ALTER PROCEDURE [dbo].[spInsereValorUST] 
+ALTER PROCEDURE [dbo].[spCreateValorUST] 
 (
 	@vlUST float,
+	@dtInicio datetime,
 	@pkValorUST int = null output
 )
 AS
 BEGIN
 	
-	INSERT INTO tblValorUST(vlUST, stValorUST)
-	VALUES (@vlUST, 1)
+	INSERT INTO tblValorUST(vlUST, dtInicio, stValorUST)
+	VALUES (@vlUST, GETDATE(), 1)
 
 	SET @pkValorUST = @@IDENTITY
 END
