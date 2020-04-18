@@ -1,0 +1,109 @@
+--CREATE DATABASE BDTOTVS
+
+USE BDTOTVS
+
+CREATE TABLE tblOS
+(	
+	pkOS	int not null primary key identity,
+	nrOS	varchar(12),
+	dsOS	nvarchar(2000),
+	stOS	bit not null
+)
+
+CREATE TABLE tblServicosSoftware
+(
+	pkServicosSoftware	int not null primary key identity,
+	sgServicosSoftware	nchar(10),
+	nmServicosSoftware	varchar(50),
+	dsServilosSoftware	nvarchar(2000),
+	stServicosSoftware	bit not null
+)
+
+
+CREATE TABLE tblSeveridade
+(
+	pkSeveridade	int not null primary key identity,
+	nmSeveridade	varchar(20),
+	dsSeveridade	nvarchar(1000),
+	dtSeveridadeAtendimento varchar(7) null,
+	dtSeveridadeManutencao varchar(7) null,
+	stSeveridade	bit not null
+)
+
+CREATE TABLE tblTipoCriticidade
+(
+	pkTipoCriticidade	int not null primary key identity,
+	nmTipoCriticidade	varchar(20) null,
+	dsTipoCriticidade	nvarchar(1000) null,
+	dtTipoCriticidadeAtendimento varchar(7) null,
+	dtTipoCriticidadeManutencao	 varchar(7) null,
+	stTipoCriticidade	bit not null
+)
+
+CREATE TABLE tblCriticidade
+(
+	pkCriticidade	int not null primary key identity,
+	nmCriticidade	varchar(20),
+	dsCriticidade	nvarchar(1000),
+	dtCriticidadeAtendimento varchar(7) null,
+	dtCriticidadeManutencao varchar(7) null,
+	fkTipoCriticidade int null,
+
+	CONSTRAINT fkTipoCriticidadetblCriticidade_pkTipoCriticidadetblTipoCriticidade foreign key (fkTipoCriticidade) references tblTipoCriticidade(pkTipoCriticidade)
+)
+
+CREATE TABLE tblFatorUST
+(
+	pkFatorUST	int not null primary key identity,
+	ftFatorUST	float null,
+	stFatorUST	bit not null
+)
+
+CREATE TABLE tblValorUST
+(
+	pkValorUST	int not null primary key identity,
+	vlUST		float null,
+	stValorUST	bit not null
+)
+
+
+CREATE TABLE tblComplexidade
+(
+	pkComplexidade	int not null primary key identity,
+	nrComplexidade	char(2) null,
+	nmComplexidade	varchar(10) null,
+	stComplexidade	bit not null
+)
+
+
+CREATE TABLE tblNivelComplexidade
+(
+	pkNivelComplexidade	int not null primary key identity,
+	nrNivelComplexidade	char(5),
+	dsNivelComplexidade	varchar(1000),
+	stNivelComplexidade	bit not null
+)
+
+
+CREATE TABLE rlComplexidadeNivelComplexidade
+(
+	fkComplexidade	int not null,
+	fkNivelComplexidade	int not null,
+
+	CONSTRAINT fkComplexidaderlComplexidadeNivelComplexidade_pkComplexidadetblComplexidade foreign key (fkComplexidade) references tblComplexidade(pkComplexidade),
+	CONSTRAINT fkNivelComplexidaderlComplexidadeNivelComplexidade_pkNivelComplexidadetblNivelComplexidade foreign key (fkNivelComplexidade) references tblNivelComplexidade (pkNivelComplexidade)
+)
+
+CREATE TABLE rlNivelComplexidadeFatorUST
+(
+	fkNivelComplexidade int not null,
+	fkFatorUST int not null,
+
+	CONSTRAINT fkNivelComplexidaderlNivelComplexidadeFatorUST_pkNivelComplexidadetblNivelComplexidade foreign key (fkNivelComplexidade) references tblNivelComplexidade (pkNivelComplexidade),
+	CONSTRAINT fkFatorUSTrlNivelComplexidadeFatorUST_pkFatorUSTtblFatorUST foreign key (fkFatorUST) references tblFatorUST (pkFatorUST)
+)
+
+
+
+
+
