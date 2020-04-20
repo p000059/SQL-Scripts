@@ -1,0 +1,37 @@
+CREATE PROCEDURE [dbo].[spFrameComplexidade] --'01', 'Baixa', '1.1', 'Incluir proposta no sistema interno de gerenciamento de projetos.' 
+--(
+	@nrComplexidade char(2),
+	@nmComplexidade varchar(10),
+	@nrNivelComplexidade char(5),
+	@dsNivelComplexidade varchar(1000)
+--)
+AS
+BEGIN
+	DECLARE @pkComplexidade int
+	DECLARE @pkNivelComplexidade int
+	
+	EXEC dbo.spCreateComplexidade @nrComplexidade, @nmComplexidade, @pkComplexidade OUTPUT
+	EXEC dbo.spCreateNivelComplexidade @nrNivelComplexidade, @dsNivelComplexidade, @pkNivelComplexidade OUTPUT
+	--SELECT 'Resultado = ', @pkComplexidade
+
+	--SET @pkComplexidade = SELECT @@IDENTITY 
+	--SET @pkNivelComplexidade = SELECT IDENT_CURRENT(tblNivelComplexidade)
+
+	INSERT INTO rlComplexidadeNivelComplexidade(fkComplexidade, fkNivelComplexidade)
+	VALUES (@pkComplexidade, @pkNivelComplexidade)
+END
+
+--SELECT		
+--		cl.pkComplexidade,
+--		cc.fkComplexidade,
+--		cc.fkNivelComplexidade,
+--		nc.pkNivelComplexidade
+
+--FROM	BDTOTVS.dbo.tblComplexidade	cl
+--		JOIN BDTOTVS.dbo.rlComplexidadeNivelComplexidade cc
+--			 ON cl.pkComplexidade = cc.fkComplexidade
+--		JOIN BDTOTVS.dbo.tblNivelComplexidade nc
+--			 ON cc.fkNivelComplexidade = nc.pkNivelComplexidade
+
+--SELECT * FROM tblNivelComplexidade
+--SELECT * FROM tblComplexidade
