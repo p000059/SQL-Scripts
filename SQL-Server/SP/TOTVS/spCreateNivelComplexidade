@@ -1,0 +1,24 @@
+USE [BDTOTVS]
+GO
+/****** Object:  StoredProcedure [dbo].[spCreateNivelComplexidade]    Script Date: 20/04/2020 11:23:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[spCreateNivelComplexidade] -- '00.0', 'Teste de Complexidade'
+(
+	@nrNivelComplexidade char(5),
+	@dsNivelComplexidade varchar(1000),
+	@pkNivelComplexidade int = null output
+)
+AS
+BEGIN
+	INSERT INTO tblNivelComplexidade(nrNivelComplexidade, dsNivelComplexidade, stNivelComplexidade)
+	VALUES (@nrNivelComplexidade, @dsNivelComplexidade, 1)
+
+	SET @pkNivelComplexidade = @@IDENTITY
+
+	RETURN
+END
+
+--SELECT * FROM tblNivelComplexidade
