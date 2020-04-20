@@ -1,0 +1,17 @@
+ALTER PROCEDURE [dbo].[spCreateComplexidade] -- '00', 'Teste'
+(
+	@nrComplexidade char(2),
+	@nmComplexidade varchar(10),
+	@pkComplexidade int = null output
+)
+AS
+BEGIN
+	INSERT INTO tblComplexidade(nrComplexidade, nmComplexidade, stComplexidade)
+	VALUES (@nrComplexidade, @nmComplexidade, 1)
+
+	SET @pkComplexidade = @@IDENTITY
+
+	RETURN
+END
+
+--SELECT * FROM tblComplexidade
