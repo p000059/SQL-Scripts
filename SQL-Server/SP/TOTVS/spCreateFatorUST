@@ -1,0 +1,15 @@
+ALTER PROCEDURE [dbo].[spCreateFatorUST] --0.93
+(
+	@vlFatorUST float,
+	@pkFatorUST int = null output
+)
+AS
+BEGIN
+	
+	INSERT INTO tblFatorUST(vlFatorUST, dtInicio, stFatorUST)
+	VALUES (@vlFatorUST, GETDATE(), 1)
+
+	SET @pkFatorUST = @@IDENTITY
+
+	RETURN
+END
