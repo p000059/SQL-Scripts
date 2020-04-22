@@ -1,4 +1,4 @@
-ALTER PROCEDURE [dbo].[spCreateFatorUST] --0.93
+CREATE PROCEDURE [dbo].[spCreateFatorUST] --0.93
 (
 	@vlFatorUST float,
 	@pkFatorUST int = null output
