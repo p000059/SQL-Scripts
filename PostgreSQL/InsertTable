@@ -1,0 +1,15 @@
+CREATE OR REPLACE FUNCTION fc_InsertPerson
+(
+	NamePerson varchar(100), 
+	Id_TypePerson int, 
+	id_Gender int, 
+	st_Person bit
+)
+RETURNS BOOLEAN
+AS $$
+BEGIN
+	INSERT INTO tb_Person VALUES($1,$2,$3,$4);
+	RETURN TRUE;
+END
+$$
+LANGUAGE plpgsql;
