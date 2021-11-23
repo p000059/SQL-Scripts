@@ -1,0 +1,13 @@
+Criar um usuario:
+
+sudo su - postgres -c "createuser fulano"
+
+Criar um banco:
+
+sudo su - postgres -c "createdb dbBanco"
+
+Atribuir permissões do usuário ao banco:
+
+sudo -u postgres psql
+GRANT ALLPRIVILEGES ON DATABASE dbBanco TO fulano
+
