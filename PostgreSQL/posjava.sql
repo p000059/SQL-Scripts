@@ -1,3 +1,23 @@
+create SEQUENCE personSequence
+increment 1
+minvalue 1
+maxvalue 9223372036854775807
+start 7;
+
+
+insert into tbl_person(pk_person,nm_person, ml_person) values(7,'Guimaraes','guima@gmail.com')
+
+update tbl_person
+set
+	nm_person = 'Mauricio Guima',
+	ml_person = 'mauricio@gmail.com'
+where pk_person = 2
+returning *;
+
+select * from tbl_person order by pk_person
+
+delete from tbl_person where tbl_person.pk_person = 7
+
 CREATE TABLE tb_TypePerson
 (
 	id_TypePerson	serial not null unique primary key,
@@ -46,11 +66,3 @@ CREATE TABLE rl_PersonUser
 	foreign key (id_Person) references tb_Person (id_Person),
 	foreign key (id_User) references tb_User (id_User)
 );
-
---Esse bloco vai preencher a tabela tipo de pessoa.
-insert into tb_TypePerson(nm_TypePerson, ds_TypePerson, st_typeperson)
-values('Pessoa Natural', 'Popularmente conhecido com pessoa física.', '1');
-
-insert into tb_TypePerson(nm_TypePerson, ds_TypePerson, st_TypePerson)
-values('Pessoa Jurídica', 'Conhecido como Pessoa Jurídica', '1');
-
