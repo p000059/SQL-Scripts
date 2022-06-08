@@ -1,3 +1,5 @@
+CREATE DATABASE BDVACATION
+
 CREATE TABLE type_persons(
 	
 	id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
@@ -37,3 +39,4 @@ CREATE TABLE rl_persons_vacations(
 	FOREIGN KEY (person_id) REFERENCES persons(id),
 	FOREIGN KEY (vacation_id) REFERENCES vacations(id)
 );
+
