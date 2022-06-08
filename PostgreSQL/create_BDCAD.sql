@@ -2,8 +2,8 @@ CREATE DATABASE DBCAD
 
 CREATE TABLE tb_status
 (
-	id_status SERIAL NOT NULL UNIQUE PRIMARY KEY,
-	co_status VARCHAR(2) NOT NULL,
+	id_status BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
+	co_status CHAR(2) NOT NULL,
 	nm_status VARCHAR(50) NOT NULL,
 	st_status BOOLEAN NOT NULL,
 	ds_status VARCHAR(200)	
@@ -11,14 +11,14 @@ CREATE TABLE tb_status
 
 CREATE TABLE tb_doc
 (
-	id_doc SERIAL NOT NULL UNIQUE PRIMARY KEY,
+	id_doc BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
 	isrg_doc VARCHAR(12),
 	cpfcnpj_doc VARCHAR(14)
 );
 
 CREATE TABLE tb_sex
 (
-	id_sex SERIAL NOT NULL UNIQUE PRIMARY KEY,
+	id_sex BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
 	nm_sex VARCHAR(20),
 	ds_sex VARCHAR(100)
 );
@@ -26,14 +26,14 @@ CREATE TABLE tb_sex
 -- domain table type person
 CREATE TABLE tb_typeperson
 (
-	id_typeperson	SERIAL NOT NULL UNIQUE PRIMARY KEY,
+	id_typeperson	BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
 	nm_typeperson	VARCHAR(30) NOT NULL,
 	ds_typeperson	VARCHAR(100) NOT NULL	
 );
 
 CREATE TABLE tb_user
 (
-	id_user		SERIAL NOT NULL UNIQUE PRIMARY KEY,
+	id_user		BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
 	co_user		CHAR(7) NOT NULL,
 	ds_user		VARCHAR(150) NOT NULL,
 	dt_user 	VARCHAR(14) NOT NULL,
@@ -44,8 +44,8 @@ CREATE TABLE tb_user
 
 CREATE TABLE tb_typeuser
 (
-	id_typeuser	SERIAL NOT NULL UNIQUE PRIMARY KEY,
-	co_typeuser VARCHAR(20) NOT NULL,
+	id_typeuser	BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
+	co_typeuser 	VARCHAR(20) NOT NULL,
 	nm_typeuser	VARCHAR(20) NOT NULL,
 	ds_typeuser	VARCHAR(200) NOT NULL,
 	dt_typeuser	VARCHAR(14) NOT NULL,
@@ -56,9 +56,9 @@ CREATE TABLE tb_typeuser
 
 CREATE TABLE tb_person
 (
-  	id_person		SERIAL NOT NULL UNIQUE PRIMARY KEY,
-  	nm_person		VARCHAR(100) NOT NULL,
-  	dt_person		VARCHAR(14) NOT NULL,
+  	id_person	BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
+  	nm_person	VARCHAR(100) NOT NULL,
+  	dt_person	VARCHAR(14) NOT NULL,
 	id_typeperson 	INT NOT NULL,
 	id_doc			INT NOT NULL,
 	id_sex			INT NOT NULL,
@@ -70,8 +70,8 @@ CREATE TABLE tb_person
 
 CREATE TABLE rl_personuser
 (
-	id_person 	INT NOT NULL,
-	id_user		INT NOT NULL,
+	id_person 	BIGSERIAL NOT NULL,
+	id_user		BIGSERIAL NOT NULL,
 	
 	FOREIGN KEY (id_person) REFERENCES tb_person (id_person),
 	FOREIGN KEY (id_user) REFERENCES tb_user (id_user)
