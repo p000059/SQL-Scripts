@@ -18,10 +18,9 @@ CREATE TABLE type_persons(
 
 CREATE TABLE type_positions(
 	
-	id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
-	co_tposition CHAR(2) UNIQUE NOT NULL,
+	id SERIAL NOT NULL UNIQUE PRIMARY KEY,	
 	nm_tposition VARCHAR(15) NOT NULL,
-	ds_tpostition VARCHAR(150) NOT NULL,
+	ds_tposition VARCHAR(150) NOT NULL,
 	st_tposition BIT(1) NOT NULL
 );
 
@@ -29,7 +28,7 @@ CREATE TABLE type_users(
 	
 	id SERIAL NOT NULL UNIQUE PRIMARY KEY,
 	co_tuser CHAR(2) UNIQUE NOT NULL,
-	nm_tuser VARCHAR(20) NOT NULL,
+	nm_tuser VARCHAR(30) NOT NULL,
 	ds_tuser VARCHAR(150) NOT NULL,
 	st_tuser BIT(1) NOT NULL
 );
@@ -58,7 +57,7 @@ CREATE TABLE persons(
 	sex_id INTEGER NOT NULL,
 	type_person_id BIGINT NOT NULL,
 	
-	FOREING KEY (sex_id) REFERENCES sex(id),
+	FOREIGN KEY (sex_id) REFERENCES sex(id),
 	FOREIGN KEY (type_person_id) REFERENCES type_persons(id)
 );
 
@@ -88,8 +87,6 @@ CREATE TABLE positions(
 	
 	id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
 	co_position CHAR(4) NOT NULL,
-	nm_position VARCHAR(20) NOT NULL,
-	ds_position VARCHAR(150) NOT NULL,
 	st_position BIT(1) NOT NULL,
 	type_position_id INTEGER NOT NULL,
 	
@@ -112,9 +109,9 @@ CREATE TABLE rl_positions_salaries(
 	dt_initial VARCHAR(14) NOT NULL,
 	dt_final VARCHAR(14) NOT NULL,
 
-	FOREING KEY (position_id) REFERENCES positions(id),
-	FOREING KEY (salary_id) REFERENCES salaries(id)
-)
+	FOREIGN KEY (position_id) REFERENCES positions(id),
+	FOREIGN KEY (salary_id) REFERENCES salaries(id)
+);
 
 CREATE TABLE rl_persons_adresses(
 
@@ -132,8 +129,8 @@ CREATE TABLE rl_persons_users(
 	person_id BIGINT NOT NULL,
 	user_id BIGINT NOT NULL,
 	
-	FOREING KEY (person_id) REFERENCES persons(id),
-	FOREING KEY (user_id) REFERENCES users(id)
+	FOREIGN KEY (person_id) REFERENCES persons(id),
+	FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 CREATE TABLE rl_persons_vacations(
@@ -155,7 +152,7 @@ CREATE TABLE rl_users_positions(
 	dt_final VARCHAR(14) NOT NULL,
 	
 	FOREIGN KEY (user_id) REFERENCES users(id),
-	FOREING KEY (position_id) REFERENCES positions(id)
+	FOREIGN KEY (position_id) REFERENCES positions(id)
 );
 
 INSERT INTO sex(co_sex, ds_sex)
@@ -167,75 +164,74 @@ VALUES ('02','Feminino');
 INSERT INTO sex(co_sex, ds_sex)
 VALUES ('03','Outro');
 
-INSERT INTO type_persons(co_tperson, nm_tperson, ds_tperson, st_tperson)
-VALUES ('01','PF','Pessoa Física',1);
 
 INSERT INTO type_persons(co_tperson, nm_tperson, ds_tperson, st_tperson)
-VALUES ('02','PJ','Pessoa Jurídica',1);
+VALUES ('01','PF','Pessoa Física','1');
 
 INSERT INTO type_persons(co_tperson, nm_tperson, ds_tperson, st_tperson)
-VALUES ('03','ES','Estrangeiro',1);
+VALUES ('02','PJ','Pessoa Jurídica','1');
 
-INSERT INTO type_user(co_tuser, nm_tuser, ds_tuser, st_user)
-VALUES ('01', 'Empregado', 'Empregrado diretamente efetivado na empresa', 1);
-
-INSERT INTO type_user(co_tuser, nm_tuser, ds_tuser, st_user)
-VALUES ('02', 'Empregado Terceirizado', 'Empregrado prestador de serviço por terceirização', 1);
-
-INSERT INTO type_user(co_tuser, nm_tuser, ds_tuser, st_user)
-VALUES ('03', 'Estagiário', 'Estagiário diretamente contratado na empresa', 1);
-
-INSERT INTO type_user(co_tuser, nm_tuser, ds_tuser, st_user)
-VALUES ('04', 'Empregado Temporário', 'Empregrado temporariamente contratado para prestar serviços à empresa.', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Gerente', 'Gestor de um setor', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Coordenador', 'Responsável por organizar e ordenar uma área', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Coordenador Local', 'Organiza e ordena um setor de uma área', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Superintendente', 'Gestor de um setor', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Diretor', 'Gestor de um setor ou mais setores', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Assessor Local', 'Gestor de de parte de um setor e auxilia o gestor local.', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Assessor', 'Auxilia o gestor do setor.', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Assistente Técnico', 'Técnico da área negocial.', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Assistente Administrativo', 'Auxilia nas atividades operacionais da área', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Cobertura', 'Pessoa que cobre férias de outros funcionários', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Atendente', 'Responsável por controlar, informar e direcionar pessoas à empresa.', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Porteiro', 'Controla entrada e saída de veículos e pessoas.', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Copeiro(a)', 'Desempenha atividades de copa da empresa.', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Auxiliar de Serviços', 'Responsável por efetuar a limpeza, conservação e organização de empresa', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Encarregado de Serviços', 'Gestor do pessoal de Auxiliar de Serviços', 1);
-
-INSERT INTO type_positions(co_tposition, nm_tposition, ds_position, st_position)
-VALUES ('Técnico de manutenção', 'Responsável pela manutenção mecânica e elétrica predial.', 1);
+INSERT INTO type_persons(co_tperson, nm_tperson, ds_tperson, st_tperson)
+VALUES ('03','ES','Estrangeiro','1');
 
 
+INSERT INTO type_users(co_tuser, nm_tuser, ds_tuser, st_tuser)
+VALUES ('01', 'Empregado', 'Empregrado diretamente efetivado na empresa', '1');
+
+INSERT INTO type_users(co_tuser, nm_tuser, ds_tuser, st_tuser)
+VALUES ('02', 'Terceirizado', 'Empregrado prestador de serviço por terceirização', '1');
+
+INSERT INTO type_users(co_tuser, nm_tuser, ds_tuser, st_tuser)
+VALUES ('03', 'Estagiário', 'Estagiário diretamente contratado na empresa', '1');
+
+INSERT INTO type_users(co_tuser, nm_tuser, ds_tuser, st_tuser)
+VALUES ('04', 'Temporário', 'Empregrado temporário.', '1');
 
 
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Gerente', 'Gestor de um setor', '1');
+
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Coordenador', 'Responsável por organizar e ordenar uma área', '1');
+
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Coordenador Local', 'Organiza e ordena um setor de uma área', '1');
+
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Superintendente', 'Gestor de um setor', '1');
+
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Diretor', 'Gestor de um setor ou mais setores', '1');
+
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Assessor Local', 'Gestor de de parte de um setor e auxilia o gestor local.', '1');
+
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Assessor', 'Auxilia o gestor do setor.', '1');
+
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Assistente Técnico', 'Técnico da área negocial.', '1');
+
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Assistente Administrativo', 'Auxilia nas atividades operacionais da área', '1');
+
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Cobertura', 'Pessoa que cobre férias de outros funcionários', '1');
+
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Atendente', 'Responsável por controlar, informar e direcionar pessoas à empresa.', '1');
+
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Porteiro', 'Controla entrada e saída de veículos e pessoas.', '1');
+
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Copeiro(a)', 'Desempenha atividades de copa da empresa.', '1');
+
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Auxiliar de Serviços', 'Responsável por efetuar a limpeza, conservação e organização de empresa', '1');
+
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Encarregado de Serviços', 'Gestor do pessoal de Auxiliar de Serviços', '1');
+
+INSERT INTO type_positions(nm_tposition, ds_position, st_position)
+VALUES ('Técnico de manutenção', 'Responsável pela manutenção mecânica e elétrica predial.', '1');
