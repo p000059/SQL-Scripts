@@ -1,4 +1,14 @@
-CREATE DATABASE BDVACATION
+CREATE TABLE documents(
+    
+    id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
+    rg_isc VARCHAR(16) NOT NULL,
+    cnh_driver CHAR(15),
+    cpf_cnpj VARCHAR(16) NOT NULL,
+    passport VARCHAR(20),    
+    type_person_id BIGINT NOT NULL,
+    
+    FOREIGN KEY (type_person_id) REFERENCES type_persons(id)
+);
 
 CREATE TABLE sex(
 	
@@ -57,8 +67,7 @@ CREATE TABLE persons(
 	sex_id INTEGER NOT NULL,
 	type_person_id BIGINT NOT NULL,
 	
-	FOREIGN KEY (sex_id) REFERENCES sex(id),
-	FOREIGN KEY (type_person_id) REFERENCES type_persons(id)
+	FOREIGN KEY (sex_id) REFERENCES sex(id)	
 );
 
 CREATE TABLE users(
@@ -100,6 +109,17 @@ CREATE TABLE salaries(
 	ds_salary VARCHAR(150) NOT NULL,
 	vl_salary FLOAT NOT NULL,
 	st_salary BIT(1) NOT NULL
+);
+
+CREATE TABLE rl_persons_documents(
+    
+    person_id BIGINT NOT NULL,
+    document_id BIGINT NOT NULL,
+    dt_initial VARCHAR(14) NOT NULL,
+	dt_final VARCHAR(14) NOT NULL,
+    
+    FOREIGN KEY (person_id) REFERENCES persons(id),
+    FOREIGN KEY (document_id) REFERENCES documents(id)
 );
 
 CREATE TABLE rl_positions_salaries(
@@ -194,7 +214,6 @@ INSERT INTO type_users(co_tuser, nm_tuser, ds_tuser, st_tuser)
 VALUES ('06', 'Servidor', 'Efetivo da empresa.', '1');
 
 
-
 INSERT INTO type_positions(nm_tposition, ds_tposition, st_tposition)
 VALUES ('Gerente', 'Gestor de um setor', '1');
 
@@ -242,3 +261,13 @@ VALUES ('Encarregado de Serviços', 'Gestor do pessoal de Auxiliar de Serviços'
 
 INSERT INTO type_positions(nm_tposition, ds_tposition, st_tposition)
 VALUES ('Técnico de manutenção', 'Responsável pela manutenção mecânica e elétrica predial.', '1');
+
+INSERT INTO persons(co_person, nm_person, ds_person, dt_birth, st_person, sex_id, type_person_id)
+VALUES('0000001','Leonardo da Vinci','Polymath','15041452','1',1,1);
+
+INSERT INTO documents(rg_isc, cpf_cnpj, cnh_driver, passport, type_person_id)
+VALUES('4567891','38300599000182','01468942578','456231087',1);
+
+INSERT INTO rl_persons_documents(person_id, document_id, dt_initial, dt_final)
+VALUES(1,1,14062022,00000000);
+
