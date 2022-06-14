@@ -1,3 +1,5 @@
+CREATE DATABASE BDCADM
+
 CREATE TABLE documents(
     
     id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
@@ -52,7 +54,7 @@ CREATE TABLE adresses(
 	cy_adress VARCHAR(25)NOT NULL,
 	ds_adress VARCHAR(40) NOT NULL,
 	nr_adress CHAR(4)NOT NULL,
-	cm_adress VARCHAR(20) NOT NULL,
+	cm_adress VARCHAR(50) NOT NULL,
 	st_adress BIT(1) NOT NULL	
 );
 
@@ -271,3 +273,31 @@ VALUES('4567891','38300599000182','01468942578','456231087',1);
 INSERT INTO rl_persons_documents(person_id, document_id, dt_initial, dt_final)
 VALUES(1,1,14062022,00000000);
 
+INSERT INTO adresses(co_adress, ct_adress, uf_adress, cy_adress, ds_adress, nr_adress, cm_adress, st_adress)
+VALUES('00000001','Italy','ML','Milan','Endereço aproximando.','20','Residência aproximanda','1');
+
+INSERT INTO rl_persons_adresses(adress_id, person_id, dt_initial, dt_final)
+VALUES(1,1,'20220614153300','00000000000000');
+
+SELECT 
+    ps.nm_person,
+    ps.ds_person,
+    ps.dt_birth,
+    dc.cpf_cnpj,
+    sex.ds_sex,
+    tp.nm_tperson
+FROM documents dc
+    LEFT JOIN rl_persons_documents rl ON rl.document_id = dc.id
+    LEFT JOIN persons ps ON rl.person_id = ps.id
+    LEFT JOIN sex ON sex.id = ps.sex_id
+    LEFT JOIN type_persons tp ON tp.id = ps.type_person_id
+    
+SELECT
+    ps.nm_person,
+    ps.ds_person,
+    ps.dt_birth,
+    ad.ct_adress,
+    ad.cy_adress
+FROM persons ps
+    LEFT JOIN rl_persons_adresses rp ON rp.person_id = ps.id
+    LEFT JOIN adresses ad ON ad.id = rp.adress_id
