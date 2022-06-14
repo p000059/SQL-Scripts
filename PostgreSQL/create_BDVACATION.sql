@@ -32,7 +32,7 @@ CREATE TABLE type_users(
 	nm_tuser VARCHAR(20) NOT NULL,
 	ds_tuser VARCHAR(150) NOT NULL,
 	st_tuser BIT(1) NOT NULL
-)
+);
 
 CREATE TABLE adresses(
 	
@@ -94,7 +94,7 @@ CREATE TABLE positions(
 	type_position_id INTEGER NOT NULL,
 	
 	FOREIGN KEY (type_position_id) REFERENCES type_positions(id)
-)
+);
 
 CREATE TABLE rl_persons_adresses(
 
