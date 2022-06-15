@@ -25,7 +25,7 @@ CREATE TABLE type_positions(
 CREATE TABLE type_users(
 	
 	id SERIAL NOT NULL UNIQUE PRIMARY KEY,
-	co_tuser CHAR(2) UNIQUE NOT NULL,
+	co_tuser CHAR(7) NOT NULL,
 	nm_tuser VARCHAR(30) NOT NULL,
 	ds_tuser VARCHAR(150) NOT NULL,
 	st_tuser BIT(1) NOT NULL
@@ -194,23 +194,23 @@ INSERT INTO type_persons(co_tperson, nm_tperson, ds_tperson, st_tperson)
 VALUES ('03','ES','Estrangeiro','1');
 
 
-INSERT INTO type_users(co_tuser, nm_tuser, ds_tuser, st_tuser)
-VALUES ('01', 'Empregado', 'Empregrado diretamente efetivado na empresa', '1');
+INSERT INTO type_users(nm_tuser, ds_tuser, st_tuser)
+VALUES ('Empregado', 'Empregrado diretamente efetivado na empresa', '1');
 
-INSERT INTO type_users(co_tuser, nm_tuser, ds_tuser, st_tuser)
-VALUES ('02', 'Terceirizado', 'Empregrado prestador de serviço por terceirização', '1');
+INSERT INTO type_users(nm_tuser, ds_tuser, st_tuser)
+VALUES ('Terceirizado', 'Empregrado prestador de serviço por terceirização', '1');
 
-INSERT INTO type_users(co_tuser, nm_tuser, ds_tuser, st_tuser)
-VALUES ('03', 'Estagiário', 'Estagiário diretamente contratado na empresa', '1');
+INSERT INTO type_users(nm_tuser, ds_tuser, st_tuser)
+VALUES ('Estagiário', 'Estagiário diretamente contratado na empresa', '1');
 
-INSERT INTO type_users(co_tuser, nm_tuser, ds_tuser, st_tuser)
-VALUES ('04', 'Temporário', 'Empregrado temporário.', '1');
+INSERT INTO type_users(nm_tuser, ds_tuser, st_tuser)
+VALUES ('Temporário', 'Empregrado temporário.', '1');
 
-INSERT INTO type_users(co_tuser, nm_tuser, ds_tuser, st_tuser)
-VALUES ('05', 'Colaborador', 'Empregrado sem vínculo com a empresa.', '1');
+INSERT INTO type_users(nm_tuser, ds_tuser, st_tuser)
+VALUES ('Colaborador', 'Empregrado sem vínculo com a empresa.', '1');
 
-INSERT INTO type_users(co_tuser, nm_tuser, ds_tuser, st_tuser)
-VALUES ('06', 'Servidor', 'Efetivo da empresa.', '1');
+INSERT INTO type_users(nm_tuser, ds_tuser, st_tuser)
+VALUES ('Servidor', 'Efetivo da empresa.', '1');
 
 
 INSERT INTO type_positions(nm_tposition, ds_tposition, st_tposition)
