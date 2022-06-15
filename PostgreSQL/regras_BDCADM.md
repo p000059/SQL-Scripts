@@ -38,8 +38,8 @@
     <p>7 - A tabela users se relaciona com a tabela cargo</p>
     <p>8 - O tipo de usuário é definido em relação ao acesso ao domínio e aos sistemas, ou seja, trata-se de perfil de acesso. Para a tabela users, trata-se da identificação de código de usuário, seguindo um exemplo:</p>
     <ul>
-      <li>x000077 -> identificação de usuário, com perfil de tipo de acesso ao domínio em "type_user = usuário comum".</li>
-      <li>x000077 -> identificação de usuário, com perfil de tipo de acesso ao domínio em "type_user = administrador local"</li>
+      <li>f000077 -> identificação de usuário, com perfil de tipo de acesso ao domínio em "type_user = usuário comum".</li>
+      <li>f000077 -> identificação de usuário, com perfil de tipo de acesso ao domínio em "type_user = administrador local"</li>
     </ul>
     <p>9 - O valor do sálario está correlacionado com a tabela positions, que se refere aos cargos.</p>
     <p>10 - Um usuário cadastrado deve ser um empregrado efetivo, empregado terceirizado, estagiário ou empregado temporário.</p>
