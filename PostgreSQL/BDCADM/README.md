@@ -41,8 +41,14 @@
       <li>f000077 -> identificação de usuário, com perfil de tipo de acesso ao domínio em "type_user = usuário comum no domínio".</li>
       <li>f000077 -> identificação de usuário, com perfil de tipo de acesso ao domínio em "type_user = administrador local do ativo de rede."</li>
     </ul>
-    <p>9 - O valor do salário correlaciona-se com a tabela positions, que se refere aos cargos.</p>
-    <p>10 - Um usuário cadastrado deve ser um empregrado efetivo, empregado terceirizado, estagiário ou empregado temporário.</p>
-    <p>11 - Para as férias, a relação está diretamente ligada ao usuário do sistema, pois o usuário deve atender ao tópico 10. </p>
+    <p>9 - O cargo tem sua definição própria e o seu tipo na tabela type_positions que pode ser uma atribuição específica, como exemplo abaixo:</p>
+    <ul>
+      <li>Gerente Executivo -> gestor da coordenação.</li>
+      <li>Gerente de Setor -> gestor de uma área subalterna a uma coordenação.</li>      
+    </ul>
+    <p>10 - O valor do salário correlaciona-se com a tabela positions, que se refere aos cargos.</p>
+    <p>11 - Um usuário cadastrado deve ser um empregrado efetivo, empregado terceirizado, estagiário ou empregado temporário.</p>
+    <p>12 - Para as férias, a relação está diretamente ligada ao usuário do sistema, pois o usuário deve atender ao tópico 10. </p>
+    <p>13 - Para cálculo de férias, o sistema usa como parâmetro o registro na tabela users.</p>
   </body>
 </html>
