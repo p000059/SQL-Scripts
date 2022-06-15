@@ -1,7 +1,7 @@
 CREATE TABLE sex(
 	
 	id SERIAL NOT NULL UNIQUE PRIMARY KEY,
-	co_sex CHAR(2)NOT NULL,
+	co_sex CHAR(2) UNIQUE NOT NULL,
 	ds_sex VARCHAR(25)NOT NULL
 );
 
@@ -25,7 +25,7 @@ CREATE TABLE type_positions(
 CREATE TABLE type_users(
 	
 	id SERIAL NOT NULL UNIQUE PRIMARY KEY,
-	co_tuser CHAR(7) NOT NULL,
+	co_tuser CHAR(7) UNIQUE NOT NULL,
 	nm_tuser VARCHAR(30) NOT NULL,
 	ds_tuser VARCHAR(150) NOT NULL,
 	st_tuser BIT(1) NOT NULL
@@ -37,7 +37,7 @@ CREATE TABLE documents(
     rg_isc VARCHAR(16) NOT NULL,
     cnh_driver CHAR(15),
     cpf_cnpj VARCHAR(16) NOT NULL,
-    passport VARCHAR(20),    
+    passport VARCHAR(20) NOT NULL,    
     type_person_id BIGINT NOT NULL,
     
     FOREIGN KEY (type_person_id) REFERENCES type_persons(id)
@@ -72,7 +72,7 @@ CREATE TABLE persons(
 CREATE TABLE users(
 	
 	id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
-	co_user CHAR(7) NOT NULL,
+	co_user CHAR(7) UNIQUE NOT NULL,
   	nm_user VARCHAR(30)NOT NULL,
   	ds_user VARCHAR(50)NOT NULL,
 	dt_create CHAR(14) NOT NULL,
@@ -115,7 +115,7 @@ CREATE TABLE rl_persons_documents(
     person_id BIGINT NOT NULL,
     document_id BIGINT NOT NULL,
     dt_initial VARCHAR(14) NOT NULL,
-	dt_final VARCHAR(14) NOT NULL,
+    dt_final VARCHAR(14),
     
     FOREIGN KEY (person_id) REFERENCES persons(id),
     FOREIGN KEY (document_id) REFERENCES documents(id)
@@ -126,7 +126,7 @@ CREATE TABLE rl_positions_salaries(
 	position_id BIGINT NOT NULL,
 	salary_id BIGINT NOT NULL,
 	dt_initial VARCHAR(14) NOT NULL,
-	dt_final VARCHAR(14) NOT NULL,
+	dt_final VARCHAR(14),
 
 	FOREIGN KEY (position_id) REFERENCES positions(id),
 	FOREIGN KEY (salary_id) REFERENCES salaries(id)
@@ -137,7 +137,7 @@ CREATE TABLE rl_persons_adresses(
 	person_id BIGINT NOT NULL,
 	adress_id BIGINT NOT NULL,
 	dt_initial VARCHAR(14) NOT NULL,
-	dt_final VARCHAR(14) NOT NULL,
+	dt_final VARCHAR(14),
 	
 	FOREIGN KEY (person_id) REFERENCES persons(id),
 	FOREIGN KEY (adress_id) REFERENCES adresses(id)
@@ -147,6 +147,8 @@ CREATE TABLE rl_persons_users(
 	
 	person_id BIGINT NOT NULL,
 	user_id BIGINT NOT NULL,
+	dt_initial VARCHAR(14) NOT NULL,
+	dt_final VARCHAR(14),
 	
 	FOREIGN KEY (person_id) REFERENCES persons(id),
 	FOREIGN KEY (user_id) REFERENCES users(id)
@@ -157,7 +159,7 @@ CREATE TABLE rl_persons_vacations(
 	person_id BIGINT NOT NULL,
 	vacation_id BIGINT NOT NULL,
 	dt_initial VARCHAR(14) NOT NULL,
-	dt_final VARCHAR(14) NOT NULL,
+	dt_final VARCHAR(14),
 	
 	FOREIGN KEY (person_id) REFERENCES persons(id),
 	FOREIGN KEY (vacation_id) REFERENCES vacations(id)
@@ -168,7 +170,7 @@ CREATE TABLE rl_users_positions(
 	user_id BIGINT NOT NULL,
 	position_id BIGINT NOT NULL,
 	dt_initial VARCHAR(14) NOT NULL,
-	dt_final VARCHAR(14) NOT NULL,
+	dt_final VARCHAR(14),
 	
 	FOREIGN KEY (user_id) REFERENCES users(id),
 	FOREIGN KEY (position_id) REFERENCES positions(id)
