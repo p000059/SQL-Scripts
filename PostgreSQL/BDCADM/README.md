@@ -1,6 +1,6 @@
 <html>
   <body>
-    <h1>Regras para o banco BDCAM - Banco de controle Administrativo</h1>
+    <h1>Regras para o banco BDCADM - Banco de Controle Administrativo</h1>
     <p>1 - O banco possui um total de 17 tabelas, sendo: </p>
     <ul>
       <li>6(seis) tabelas relacionais</li>
