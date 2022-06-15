@@ -36,5 +36,13 @@
     </ul>
     <p>6 - O cadastro de tipo de pessoa está relacionado com a tabela documents, pois a definição do tipo de pessoa possui a regulação específica para o tipo de documento se CPF ou CNPJ.</p>
     <p>7 - A tabela users se relaciona com a tabela cargo</p>
+    <p>8 - O tipo de usuário é definido em relação ao acesso ao domínio e aos sistemas, ou seja, trata-se de perfil de acesso. Para a tabela users, trata-se da identificação de código de usuário, seguindo um exemplo:</p>
+    <ul>
+      <li>x000077 -> identificação de usuário, com perfil de tipo de acesso ao domínio em "type_user = usuário comum".</li>
+      <li>x000077 -> identificação de usuário, com perfil de tipo de acesso ao domínio em "type_user = administrador local"</li>
+    </ul>
+    <p>9 - O valor do sálario está correlacionado com a tabela positions, que se refere aos cargos.</p>
+    <p>10 - Um usuário cadastrado deve ser um empregrado efetivo, empregado terceirizado, estagiário ou empregado temporário.</p>
+    <p>11 - Para as férias, a relação está diretamente ligada ao usuário do sistema, pois o usuário deve atender ao tópico 10. </p>
   </body>
 </html>
