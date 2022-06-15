@@ -10,7 +10,8 @@ CREATE OR REPLACE FUNCTION fc_InsertPerson
 RETURNS BOOLEAN
 AS $$
 BEGIN
-	INSERT INTO tb_Person VALUES($1, $2, $3, $4, $5, $6);
+	INSERT INTO persons 
+	VALUES($1, $2, $3, $4, $5, $6);
 	RETURN TRUE;
 END
 $$
