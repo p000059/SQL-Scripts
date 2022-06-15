@@ -34,6 +34,7 @@
       <li>Caros -> positions</li>
       <li>Salários -> salaries</li>
     </ul>
-    <p>6 - O cadastro de tipo de pessoa está relacionado a documents, pois a definição do tipo de pessoa possui a regulação</p>
+    <p>6 - O cadastro de tipo de pessoa está relacionado com a tabela documents, pois a definição do tipo de pessoa possui a regulação específica para o tipo de documento se CPF ou CNPJ.</p>
+    <p>7 - A tabela users se relaciona com a tabela cargo</p>
   </body>
 </html>
