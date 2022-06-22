@@ -1,8 +1,8 @@
-CREATE TABLE sex(
+CREATE TABLE gender(
 	
 	id SERIAL NOT NULL UNIQUE PRIMARY KEY,
-	co_sex CHAR(2) UNIQUE NOT NULL,
-	ds_sex VARCHAR(25)NOT NULL
+	co_gender CHAR(2) UNIQUE NOT NULL,
+	ds_gender VARCHAR(25)NOT NULL
 );
 
 CREATE TABLE type_persons(
@@ -67,9 +67,9 @@ CREATE TABLE persons(
 	ds_person VARCHAR(150) NOT NULL,
 	dt_birth CHAR(8)NOT NULL,
 	st_person BIT(1) NOT NULL,
-	sex_id INTEGER NOT NULL,
+	gender_id INTEGER NOT NULL,
 	
-	FOREIGN KEY (sex_id) REFERENCES sex(id)	
+	FOREIGN KEY (gender_id) REFERENCES gender(id)	
 );
 
 CREATE TABLE users(
