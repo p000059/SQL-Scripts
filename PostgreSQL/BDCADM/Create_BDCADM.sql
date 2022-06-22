@@ -14,22 +14,25 @@ CREATE TABLE type_persons(
 	st_tperson BIT(1) NOT NULL
 );
 
-CREATE TABLE type_positions(
-	
-	id SERIAL NOT NULL UNIQUE PRIMARY KEY,	
-	nm_tposition VARCHAR(30) NOT NULL,
-	ds_tposition VARCHAR(150) NOT NULL,
-	st_tposition BIT(1) NOT NULL
-);
-
 CREATE TABLE type_users(
 	
-	id SERIAL NOT NULL UNIQUE PRIMARY KEY,
+	id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
 	co_tuser CHAR(7) UNIQUE NOT NULL,
 	nm_tuser VARCHAR(30) NOT NULL,
 	ds_tuser VARCHAR(150) NOT NULL,
 	st_tuser BIT(1) NOT NULL
 );
+
+CREATE TABLE frequencies(
+	
+	id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
+	co_frequency CHAR(9) NOT NULL,
+	nm_frequency VARCHAR(60) NOT NULL,
+	tp_frequency VARCHAR(70) NOT NULL,
+	ds_frequency VARCHAR(200) NOT NULL,
+	nr_frequency CHAR(3),
+	st_frequency BIT NOT NULL
+)
 
 CREATE TABLE documents(
     
@@ -52,7 +55,7 @@ CREATE TABLE adresses(
 	cy_adress VARCHAR(25)NOT NULL,
 	ds_adress VARCHAR(40) NOT NULL,
 	nr_adress CHAR(4)NOT NULL,
-	cm_adress VARCHAR(50) NOT NULL,
+	cm_adress VARCHAR(50),
 	st_adress BIT(1) NOT NULL	
 );
 
@@ -95,10 +98,9 @@ CREATE TABLE positions(
 	
 	id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
 	co_position CHAR(4) NOT NULL,
-	st_position BIT(1) NOT NULL,
-	type_position_id INTEGER NOT NULL,
-	
-	FOREIGN KEY (type_position_id) REFERENCES type_positions(id)
+	nm_position VARCHAR(30) NOT NULL,
+	ds_position VARCHAR(150) NOT NULL,
+	st_position BIT(1) NOT NULL
 );
 
 CREATE TABLE salaries(
@@ -109,6 +111,17 @@ CREATE TABLE salaries(
 	vl_salary FLOAT NOT NULL,
 	st_salary BIT(1) NOT NULL
 );
+
+CREATE TABLE frequencies_users(
+	
+	user_id BIGINT NOT NULL,
+	frequency_id BIGINT NOT NULL,
+	 dt_initial VARCHAR(14) NOT NULL,
+    	dt_final VARCHAR(14),
+	
+	FOREIGN KEY (user_id) REFERENCES users(id),
+	FOREIGN KEY (frequency_id) REFERENCES frequencies(id)
+)
 
 CREATE TABLE rl_persons_documents(
     
