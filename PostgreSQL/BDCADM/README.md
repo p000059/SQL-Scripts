@@ -1,18 +1,17 @@
 <html>
   <body>
     <h1>Regras para o banco BDCADM - Banco de Controle Administrativo</h1>
-    <p>1 - O banco possui um total de 17 tabelas, sendo: </p>
+    <p>1 - O banco possui um total de 16 tabelas, sendo: </p>
     <ul>
       <li>6(seis) tabelas relacionais</li>
-      <li>4(quatro) tabelas de domínio</li>
+      <li>2(três) tabelas de domínio</li>
       <li>7(sete) tabelas específicas</li>      
     </ul>
     <p>2 - O banco possui uma tabela de pessoa e outra de usuário que podem estar ou não relacionadas</p>
-    <p>3 - As 4(quatro) tabelas de domínio são: </p>
+    <p>3 - As 2(duas) tabelas de domínio são: </p>
     <ul>
       <li>Sexo</li>
       <li>Tipos de Pessoas -> type_persons</li>
-      <li>Tipos de Usuários -> type_users</li>
       <li>Tipos de Cargos -> type_positions</li>
     </ul>
     <p>4 - As 6(seis) tabelas relacionais são:</p>
@@ -50,5 +49,16 @@
     <p>11 - Um usuário cadastrado deve ser um empregrado efetivo, empregado terceirizado, estagiário ou empregado temporário.</p>
     <p>12 - Para as férias, a relação está diretamente ligada ao usuário do sistema, pois o usuário deve atender ao tópico 10. </p>
     <p>13 - Para cálculo de férias, o sistema usa como parâmetro o registro na tabela users.</p>
+     <h1>Modelo dimensional BDCADM - Banco de Controle Administrativo</h1>
+     <p>O Modelo possui 3(três) tabela</p>
+     <ul>
+     <li>3(três) tabelas de dimensão</li>
+     <ul>
+     <li>Tabela dim_persons</li>
+     <li>Tabela dim_users</li>
+     <li>Tabela dim_frequencies</li>
+     </ul>
+     <li>1(uma) tabela fato fact_registrations</li>
+     </ul>
   </body>
 </html>
