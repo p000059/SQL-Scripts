@@ -3,7 +3,7 @@
     <h1>Regras para o banco BDCADM - Banco de Controle Administrativo</h1>
     <p>1 - O banco possui um total de 16 tabelas, sendo: </p>
     <ul>
-      <li>6(seis) tabelas relacionais</li>
+      <li>5(cinco) tabelas relacionais</li>
       <li>2(três) tabelas de domínio</li>
       <li>7(sete) tabelas específicas</li>      
     </ul>
@@ -14,13 +14,12 @@
       <li>Tipos de Pessoas -> type_persons</li>
       <li>Tipos de Cargos -> type_positions</li>
     </ul>
-    <p>4 - As 6(seis) tabelas relacionais são:</p>
+    <p>4 - As 5(cinco) tabelas relacionais são:</p>
     <ul>
       <li>Pessoa / Endereço -> rl_persons_adress</li>
       <li>Pessoa / Usuário -> rl_persons_users</li>
       <li>Pessoa / Documentos -> rl_persons_documents</li>
       <li>Usuários / Cargo -> rl_users_positions</li>
-      <li>Usuários / Férias -> rl_users_vacation</li>
       <li>Cargo / Salarios -> rl_positions_salaries</li>
     </ul>
     <p>5 - As 7(sete) tableas específicas são:</p>
@@ -29,9 +28,9 @@
       <li>Pessoas -> persons</li>
       <li>Documentos -> documents</li>
       <li>Usuários -> users</li>
-      <li>Férias -> vacations</li>
-      <li>Caros -> positions</li>
+      <li>Cargos -> positions</li>
       <li>Salários -> salaries</li>
+      <li>Frequencia -> frequencies</li>
     </ul>
     <p>6 - O cadastro de tipo de pessoa está relacionado com a tabela documents, pois a definição do tipo de pessoa possui a regulação específica para o tipo de documento se CPF ou CNPJ.</p>
     <p>7 - A tabela users se relaciona com a tabela cargo</p>
