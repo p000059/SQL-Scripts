@@ -5,9 +5,11 @@ $sudo su - postgres -c createuser admin_local
 Criar um banco:
 
 $sudo su - postgres -c createdb DBCADM
+$sudo su - postgres -c createdb DBADIM
 
 Atribuir permissões do usuário ao banco:
 
 $sudo -u postgres psql
 GRANT ALLPRIVILEGES ON DATABASE BDCADM TO admin_local
+GRANT ALLPRIVILEGES ON DATABASE BDADIM TO admin_local
 
