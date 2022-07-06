@@ -96,15 +96,7 @@ CREATE TABLE tb_fone (
 
 CREATE TABLE tb_document_legal_person (
 	id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
-	co_document BIGSERIAL NOT NULL UNIQUE,
-	RG CHAR(7),
-	CPF CHAR(11),
-	TE CHAR(12),
-	CRM CHAR(12),
-	CTB CHAR(5),
-	CNH CHAR(11),
-	tp_CNH CHAR(2),
-	nr_passport CHAR(8),
+	co_document BIGSERIAL NOT NULL UNIQUE,	
 	state_inscription CHAR(9),
 	municipal_inscription CHAR(11),
 	CNPJ CHAR(14),
@@ -131,10 +123,6 @@ CREATE TABLE tb_document_person (
 	CTB CHAR(5),
 	CNH CHAR(11),
 	tp_CNH CHAR(2),
-	nr_passport CHAR(8),
-	state_inscription CHAR(9),
-	municipal_inscription CHAR(11),
-	CNPJ CHAR(14),
 	st_document BIT NOT NULL
 );
 
