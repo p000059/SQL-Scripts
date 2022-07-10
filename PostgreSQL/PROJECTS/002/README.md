@@ -1,6 +1,6 @@
 <html>
  <body>
- <h1>Banco de Dados BDSECURITY</h1>
+ <h1>Banco de Dados DBSECURITY</h1>
  <p>002 - Banco dados para controle de acessos e gerenciamento de sistemas.</p>
  <p>002.1 - O banco possui 10(dez) tabelas, sendo:</p>
  <ul>
