@@ -19,7 +19,7 @@
     <column id="COL3" populated="true" UUID="d07f9ea1-027b-47e5-8945-0974296d2219" autoIncrement="false" autoIncrementSequenceName="tb_user_co_user_seq" defaultValue="" name="co_user" nullable="0" physicalName="co_user" precision="7" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
-    <column id="COL4" populated="true" UUID="268255fe-96ae-408b-b5e5-bc4646df15e1" autoIncrement="false" autoIncrementSequenceName="tb_user_pw_user_seq" defaultValue="" name="pw_user" nullable="0" physicalName="pw_user" precision="60" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL4" populated="true" UUID="268255fe-96ae-408b-b5e5-bc4646df15e1" autoIncrement="false" autoIncrementSequenceName="tb_user_pw_user_seq" defaultValue="" name="pw_user" nullable="0" physicalName="pw_user" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL5" populated="true" UUID="cfa81c75-29c5-477f-b34e-f74d6b6bc707" autoIncrement="false" autoIncrementSequenceName="tb_user_st_user_seq" defaultValue="" name="st_user" nullable="0" physicalName="st_user" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-7" userDefinedTypeUUID="936cd049-d1df-44fc-ab05-b47cabe09060" >
@@ -60,7 +60,7 @@
     <folder id="FOLTAB82" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB84" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX14" populated="true" UUID="3bc6dea7-0d42-484c-8c00-d07de5202138" clustered="false" name="rl_user_person_pk" physicalName="rl_user_person_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX14" populated="true" UUID="3bc6dea7-0d42-484c-8c00-d07de5202138" clustered="false" name="rl_user_person_pk" physicalName="rl_person_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC15" populated="true" UUID="13909258-a6a7-4eed-b240-527fd423c672" ascendingOrDescending="UNSPECIFIED" column-ref="COL9" name="id" physicalName="id" />
     </index>
    </folder>
@@ -68,7 +68,7 @@
   <table id="TAB16" populated="true" UUID="10884d56-6c9a-4453-9efb-376dc113b064" name="rl_user_group" objectType="TABLE" physicalName="rl_user_group" >
    <remarks></remarks>
    <folder id="FOLTAB161" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL17" populated="true" UUID="a6476f85-6f99-4e39-9042-e6279acfeec1" autoIncrement="false" autoIncrementSequenceName="tb_user_id_seq_1" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL17" populated="true" UUID="a6476f85-6f99-4e39-9042-e6279acfeec1" autoIncrement="false" autoIncrementSequenceName="tb_user_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     <column id="COL18" populated="true" UUID="b6bb5c66-8bba-4612-8b74-fa7f3a324528" autoIncrement="false" autoIncrementSequenceName="rl_user_group_id_user_seq" defaultValue="" name="id_user" nullable="0" physicalName="id_user" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
@@ -106,7 +106,7 @@
     <column id="COL27" populated="true" UUID="89d8a2e1-bf4d-47b1-b67b-9bd498258ac7" autoIncrement="false" autoIncrementSequenceName="rl_user_sales_dt_initial_seq" defaultValue="" name="dt_initial" nullable="0" physicalName="dt_initial" precision="14" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
-    <column id="COL28" populated="true" UUID="8205cbb7-3c41-402a-ab2a-609657131b9a" autoIncrement="false" autoIncrementSequenceName="rl_user_sales_dt_final_seq" defaultValue="" name="dt_final" nullable="1" physicalName="dt_final" precision="14" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+    <column id="COL28" populated="true" UUID="8205cbb7-3c41-402a-ab2a-609657131b9a" autoIncrement="false" autoIncrementSequenceName="rl_user_sales_dt_final_seq" defaultValue="" name="dt_final" nullable="1" physicalName="dt_final" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
     </folder>
@@ -131,7 +131,7 @@
     <column id="COL33" populated="true" UUID="6c18defa-ab23-4b01-8eac-2509a5fabd2d" autoIncrement="false" autoIncrementSequenceName="rl_user_position_dt_initial_seq" defaultValue="" name="dt_initial" nullable="0" physicalName="dt_initial" precision="14" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
-    <column id="COL34" populated="true" UUID="3f6545a6-b900-49b5-b2b4-a1417e5fd832" autoIncrement="false" autoIncrementSequenceName="rl_user_position_dt_final_seq" defaultValue="" name="dt_final" nullable="1" physicalName="dt_final" precision="14" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+    <column id="COL34" populated="true" UUID="3f6545a6-b900-49b5-b2b4-a1417e5fd832" autoIncrement="false" autoIncrementSequenceName="rl_user_position_dt_final_seq" defaultValue="" name="dt_final" nullable="1" physicalName="dt_final" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
     </folder>
