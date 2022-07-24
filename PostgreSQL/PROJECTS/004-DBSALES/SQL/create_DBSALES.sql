@@ -30,11 +30,9 @@ CREATE TABLE tb_sale (
 	tp_sale VARCHAR(30) NOT NULL,
 	qt_sale_product INTEGER NOT NULL,
 	id_value BIGINT NOT NULL,
-	id_payment BIGINT NOT NULL,
 	st_sale BIGINT NOT NULL,
 	
-	FOREIGN KEY (id_value) REFERENCES tb_value (id),
-	FOREIGN KEY (id_payment) REFERENCES tb_payment (id)
+	FOREIGN KEY (id_value) REFERENCES tb_value (id)
 );
 
 
@@ -66,4 +64,16 @@ CREATE TABLE rl_product_sale (
 	
 	FOREIGN KEY (id_sale) REFERENCES tb_sale (id)
 );
+
+CREATE TABLE rl_sale_value(
+	id_sale BIGINT NOT NULL,
+	id_value BIGINT NOT NULL,
+	dt_initial_value CHAR(14) NOT NULL,
+	dt_initial CHAR(14) NOT NULL,
+	dt_final_value CHAR(14),
+	dt_final CHAR(14),
+
+	FOREIGN KEY (id_sale) REFERENCES tb_sale (id),
+	FOREIGN KEY (id_value) REFERENCES tb_value (id)
+)
 

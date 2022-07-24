@@ -243,7 +243,7 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.GenericDDLGenerator" allow-connection="true"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.8408964152537145" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="621" y="90" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
   <table-pane table-ref="TAB14" x="612" y="566" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
   <table-pane table-ref="TAB22" x="617" y="379" bgColor="0xc8dccc" fgColor="0x000000" rounded="true" dashed="false"/>

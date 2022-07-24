@@ -4,14 +4,14 @@ CREATE TABLE tb_value (
     co_value BIGSERIAL NOT NULL UNIQUE,
     vl_cost REAL NOT NULL,
     vl_sale REAL NOT NULL,
-    st_value BIT NOT NULL
+    st_value CHAR(1) NOT NULL
 );
 
 CREATE TABLE tb_weight (
     id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
     ds_weight VARCHAR(300) NOT NULL,
     vl_weight REAL NOT NULL,
-    st_weight BIT NOT NULL
+    st_weight CHAR(1) NOT NULL
 );
 
 CREATE TABLE tb_amount (
@@ -19,14 +19,14 @@ CREATE TABLE tb_amount (
     co_amount BIGSERIAL NOT NULL UNIQUE,
     nr_maximum_amount INTEGER NOT NULL,
     nr_minimum_amount INTEGER NOT NULL,
-    st_amount BIT NOT NULL
+    st_amount CHAR(1) NOT NULL
 );
 
 CREATE TABLE tb_provider (
     id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
     co_provider BIGSERIAL NOT NULL UNIQUE,
     id_person BIGINT NOT NULL,
-    st_provider BIT NOT NULL
+    st_provider CHAR(1) NOT NULL
 );
 
 CREATE TABLE tb_category (
@@ -35,7 +35,7 @@ CREATE TABLE tb_category (
     nm_category VARCHAR(30) NOT NULL,
     ds_category VARCHAR(300) NOT NULL,
     tp_category VARCHAR(30) NOT NULL,
-    st_category BIT NOT NULL
+    st_category CHAR(1) NOT NULL
 );
 
 CREATE TABLE tb_product (
@@ -45,7 +45,7 @@ CREATE TABLE tb_product (
     ds_product VARCHAR(300) NOT NULL,
     tp_product VARCHAR(30),
     id_weight BIGINT NOT NULL,
-    st_product BIT NOT NULL
+    st_product CHAR(1) NOT NULL
 );
 
 CREATE TABLE rl_product_amount (

@@ -40,8 +40,8 @@ CREATE TABLE tb_document (
 CREATE TABLE rl_document_attachment (
     id_attachment BIGINT NOT NULL,
     id_document BIGINT NOT NULL,
-    dt_initial CHAR(14) NOT NULL,
-    dt_final CHAR(14),
+    dt_initial TIMESTAMP NOT NULL,
+    dt_final TIMESTAMP,
 
     FOREIGN KEY (id_document) REFERENCES tb_document (id),
     FOREIGN KEY (id_attachment) REFERENCES tb_attachment (id)
@@ -50,8 +50,8 @@ CREATE TABLE rl_document_attachment (
 CREATE TABLE rl_path_document (
     id_path BIGINT NOT NULL,
     id_document BIGINT NOT NULL,
-    dt_initial CHAR(14) NOT NULL,
-    dt_final CHAR(14),
+    dt_initial TIMESTAMP NOT NULL,
+    dt_final TIMESTAMP,
 
     FOREIGN KEY (id_document) REFERENCES tb_document (id),
     FOREIGN KEY (id_path) REFERENCES tb_path (id)
@@ -60,8 +60,8 @@ CREATE TABLE rl_path_document (
 CREATE TABLE rl_category_document (
     id_document BIGINT NOT NULL,
     id_category BIGINT NOT NULL,
-    dt_initial CHAR(14) NOT NULL,
-    dt_final CHAR(14),
+    dt_initial TIMESTAMP NOT NULL,
+    dt_final TIMESTAMP,
 
     FOREIGN KEY (id_document) REFERENCES tb_document (id),
     FOREIGN KEY (id_category) REFERENCES tb_category (id)
