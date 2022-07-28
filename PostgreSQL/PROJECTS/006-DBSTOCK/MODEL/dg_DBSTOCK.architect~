@@ -31,7 +31,7 @@
     <column id="COL7" populated="true" UUID="4340bc00-6535-4c5c-9517-cb478918cf2d" autoIncrement="false" autoIncrementSequenceName="tb_product_id_weight_seq" defaultValue="" name="id_weight" nullable="0" physicalName="id_weight" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL8" populated="true" UUID="258dd82f-bc88-4e4b-9083-7e9d1175bcf0" autoIncrement="false" autoIncrementSequenceName="tb_product_st_product_seq" defaultValue="" name="st_product" nullable="0" physicalName="st_product" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-7" userDefinedTypeUUID="936cd049-d1df-44fc-ab05-b47cabe09060" >
+    <column id="COL8" populated="true" UUID="258dd82f-bc88-4e4b-9083-7e9d1175bcf0" autoIncrement="false" autoIncrementSequenceName="tb_product_st_product_seq" defaultValue="" name="st_product" nullable="0" physicalName="st_product" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
     </folder>
@@ -63,7 +63,7 @@
     <column id="COL16" populated="true" UUID="ae7f095c-0bf0-4067-83c2-54cc1bef933f" autoIncrement="false" autoIncrementSequenceName="tb_category_tp_category_seq" defaultValue="" name="tp_category" nullable="0" physicalName="tp_category" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL17" populated="true" UUID="58c3cdc6-9b0a-4429-8e66-6d1ee7d96a86" autoIncrement="false" autoIncrementSequenceName="tb_category_st_category_seq" defaultValue="" name="st_category" nullable="0" physicalName="st_category" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-7" userDefinedTypeUUID="936cd049-d1df-44fc-ab05-b47cabe09060" >
+    <column id="COL17" populated="true" UUID="58c3cdc6-9b0a-4429-8e66-6d1ee7d96a86" autoIncrement="false" autoIncrementSequenceName="tb_category_st_category_seq" defaultValue="" name="st_category" nullable="0" physicalName="st_category" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
     </folder>
@@ -89,7 +89,7 @@
     <column id="COL23" populated="true" UUID="4e95b990-bf89-4beb-a2ca-3eb6611ac031" autoIncrement="false" autoIncrementSequenceName="tb_provider_id_person_seq" defaultValue="" name="id_person" nullable="0" physicalName="id_person" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL24" populated="true" UUID="46b7d9a8-9e4d-40d0-919a-56f151432e7f" autoIncrement="false" autoIncrementSequenceName="tb_provider_st_provider_seq" defaultValue="" name="st_provider" nullable="0" physicalName="st_provider" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-7" userDefinedTypeUUID="936cd049-d1df-44fc-ab05-b47cabe09060" >
+    <column id="COL24" populated="true" UUID="46b7d9a8-9e4d-40d0-919a-56f151432e7f" autoIncrement="false" autoIncrementSequenceName="tb_provider_st_provider_seq" defaultValue="" name="st_provider" nullable="0" physicalName="st_provider" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
     </folder>
@@ -143,7 +143,7 @@
     <column id="COL37" populated="true" UUID="4a6722a8-9583-49c9-bb90-336f3ae01972" autoIncrement="false" autoIncrementSequenceName="tb_amount_nr_minimum_amout_seq" defaultValue="" name="nr_minimum_amount" nullable="0" physicalName="nr_minimum_amount" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL38" populated="true" UUID="2ff7c1e5-2be6-4f45-8a07-2a51cb716786" autoIncrement="false" autoIncrementSequenceName="tb_amount_st_amout_seq" defaultValue="" name="st_amout" nullable="0" physicalName="st_amout" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-7" userDefinedTypeUUID="936cd049-d1df-44fc-ab05-b47cabe09060" >
+    <column id="COL38" populated="true" UUID="2ff7c1e5-2be6-4f45-8a07-2a51cb716786" autoIncrement="false" autoIncrementSequenceName="tb_amount_st_amout_seq" defaultValue="" name="st_amout" nullable="0" physicalName="st_amout" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
     </folder>
@@ -169,7 +169,7 @@
     <column id="COL44" populated="true" UUID="51d36ed6-8aee-44b0-95c7-59033153cbdc" autoIncrement="false" autoIncrementSequenceName="tb_weight_vl_weight_seq" defaultValue="" name="vl_weight" nullable="0" physicalName="vl_weight" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="6" userDefinedTypeUUID="7e55bcd0-7606-4153-b749-9c397f12c4d8" >
      <remarks></remarks>
     </column>
-    <column id="COL45" populated="true" UUID="cf29fbad-36ec-4caa-b21d-5b7e796dafdd" autoIncrement="false" autoIncrementSequenceName="tb_weight_st_weight_seq" defaultValue="" name="st_weight" nullable="0" physicalName="st_weight" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-7" userDefinedTypeUUID="936cd049-d1df-44fc-ab05-b47cabe09060" >
+    <column id="COL45" populated="true" UUID="cf29fbad-36ec-4caa-b21d-5b7e796dafdd" autoIncrement="false" autoIncrementSequenceName="tb_weight_st_weight_seq" defaultValue="" name="st_weight" nullable="0" physicalName="st_weight" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
     </folder>
@@ -223,7 +223,7 @@
     <column id="COL58" populated="true" UUID="1b8d5e6c-e1c5-432e-9e70-26f07d9a8663" autoIncrement="false" autoIncrementSequenceName="tb_value_vl_sale_seq" defaultValue="" name="vl_sale" nullable="0" physicalName="vl_sale" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="6" userDefinedTypeUUID="7e55bcd0-7606-4153-b749-9c397f12c4d8" >
      <remarks></remarks>
     </column>
-    <column id="COL59" populated="true" UUID="d64edbd7-b115-4810-b23f-0e9704f0295a" autoIncrement="false" autoIncrementSequenceName="tb_value_st_value_seq" defaultValue="" name="st_value" nullable="0" physicalName="st_value" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-7" userDefinedTypeUUID="936cd049-d1df-44fc-ab05-b47cabe09060" >
+    <column id="COL59" populated="true" UUID="d64edbd7-b115-4810-b23f-0e9704f0295a" autoIncrement="false" autoIncrementSequenceName="tb_value_st_value_seq" defaultValue="" name="st_value" nullable="0" physicalName="st_value" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
     </folder>
@@ -320,7 +320,7 @@
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="public"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="public"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="0.8408964152537145" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
