@@ -19,6 +19,7 @@ CREATE TABLE tb_amount (
     co_amount BIGSERIAL NOT NULL UNIQUE,
     nr_maximum_amount INTEGER NOT NULL,
     nr_minimum_amount INTEGER NOT NULL,
+    qt_stock INTEGER NOT NULL,
     status BOOLEAN NOT NULL
 );
 

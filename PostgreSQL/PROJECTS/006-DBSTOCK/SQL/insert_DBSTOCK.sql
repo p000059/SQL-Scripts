@@ -25,12 +25,42 @@ VALUES
 	('Capa de Crachá','Utilizado para identificação de pessoa',6,TRUE),
 	('Caneta Técnica','Utilizada para desenhos em projetos profissionais,',1,TRUE);
 
+
 --Inserção de valores na tabela de categoria(tb_category)
 INSERT INTO tb_category(nm_category,ds_category,status)
 VALUES
 	('Escritorio','Material Utilizado em Escritorio.',TRUE),
 	('Escolar','Material utilizado para fins pedagógicos.',TRUE),
 	('Desenho','Material utilizado para fins profissionais de desenho.',TRUE);
+
+
+--Vai inserir dados na tabela de quantidade de produtos.
+INSERT INTO tb_amount(nr_maximum_amount,nr_minimum_amount,qt_stock,status)
+VALUES
+	(250,50,200,TRUE),
+	(250,50,200,TRUE),
+	(300,50,200,TRUE),
+	(100,50,60,TRUE),
+	(100,50,60,TRUE),
+	(300,50,200,TRUE),
+	(300,50,200,TRUE),
+	(100,50,60,TRUE),
+	(500,200,300,TRUE),
+	(100,50,60,TRUE),
+	(100,50,60,TRUE),
+	(100,50,60,TRUE);
+
+
+--Vai inserir preços na tabela de valores
+INSERT INTO tb_value(vl_cost,vl_sale,status)
+VALUES
+	(1.00,1.50,TRUE),
+	(1.50,2.50,TRUE),
+	(2.50,3.50,TRUE),
+	(3.50,5.00,TRUE),
+	(10.00,15.00,TRUE),
+	(15.00,20.00,TRUE);
+
 
 --Vai inserir dados referentes ao relacionamento entre a tabela tb_product e tb_category
 INSERT INTO rl_category_product(id_product,id_category,dt_initial,dt_final)
@@ -54,46 +84,25 @@ VALUES
 	(11,1,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
 	(12,3,'2022-07-01 12:00:00','2022-08-17 19:45:00');
 
---Vai inserir dados na tabela de quantidade de produtos.
-INSERT INTO tb_amount(nr_maximum_amount, nr_minimum_amount,status)
-VALUES
-	(250,50,TRUE),
-	(150,50,TRUE),
-	(100,50,TRUE),
-	(500,90,TRUE),
-	(300,50,TRUE),
-	(200,40,TRUE),
-	(260,70,TRUE),
-	(250,80,TRUE);
 
 --Vai inserir dados na tabela de quantidade tb_amount
 INSERT INTO rl_product_amount(id_product, id_amount, dt_initial, dt_final)
 VALUES
-	(1,4,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
-	(2,4,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
+	(1,1,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
+	(2,2,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
 	(3,3,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
-	(4,6,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
-	(5,2,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
-	(6,4,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
-	(7,5,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
-	(8,3,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
-	(9,3,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
-	(10,2,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
-	(11,3,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
-	(12,6,'2022-07-01 12:00:00','2022-08-17 19:45:00');
+	(4,4,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
+	(5,5,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
+	(6,6,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
+	(7,7,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
+	(8,8,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
+	(9,9,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
+	(10,10,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
+	(11,11,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
+	(12,12,'2022-07-01 12:00:00','2022-08-17 19:45:00');
 
---Vai inserir preços na tabela de valores
-INSERT INTO tb_value(vl_cost,vl_sale,status)
-VALUES
-	(1.00,1.50,TRUE),
-	(1.50,2.50,TRUE),
-	(2.50,3.50,TRUE),
-	(3.50,5.00,TRUE),
-	(10.00,15.00,TRUE),
-	(15.00,20.00,TRUE);
 	
 --Vai inserir a relação entre a tabela de produtos e preços
-
 INSERT INTO rl_product_value(id_product,id_value, dt_initial, dt_final)
 VALUES
 	(1,1,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
@@ -109,5 +118,5 @@ VALUES
 	(11,2,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
 	(12,6,'2022-07-01 12:00:00','2022-08-17 19:45:00');
 
-	
+
 
