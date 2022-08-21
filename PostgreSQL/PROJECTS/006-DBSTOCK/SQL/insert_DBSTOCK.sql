@@ -1,12 +1,36 @@
+--Inserção na tabela de domínio type de entrada
+INSERT INTO tb_type_input_stock(nm_type,status)
+VALUES
+	('Entrada por Unidade',TRUE),
+	('Entrada em Lote',TRUE);
+
+--Inserção na tabela de Entrada de Estoque.
+INSERT INTO tb_input_stock(
+	nm_input,
+	ds_input,
+	id_type_input_stock,
+	nr_input_unity, 
+	nr_input_lot,
+	status
+)
+VALUES
+	('Compra','Compra de Reposição',2,20,1,TRUE),
+	('Compra','Compra de Reposição',1,1,1,TRUE),
+	('Compra','Compra de Reposição',2,15,1,TRUE),
+	('Compra','Compra de Reposição',2,300,2,TRUE),
+	('Compra','Compra de Inicial',2,500,5,TRUE),
+	('Compra','Compra de Reposição',2,100,10,TRUE);
+
 --Inserção de valores de peso.
 INSERT INTO tb_weight(ds_weight, vl_weight, status)
-VALUES('Valor em peso por lote', 2.1,TRUE),
-		('Valor em peso por lote', 3.8,TRUE),
-		('Valor em peso por unidade', 1.5,TRUE),
-		('Valor em peso por lote', 6.4,TRUE),
-		('Valor em peso por lote', 5.7,TRUE),
-		('Valor em peso por lote', 3.9,TRUE),
-		('Valor em peso por lote', 1.4,TRUE);
+VALUES
+	('Valor em peso por lote', 2.1,TRUE),
+	('Valor em peso por lote', 3.8,TRUE),
+	('Valor em peso por unidade', 1.5,TRUE),
+	('Valor em peso por lote', 6.4,TRUE),
+	('Valor em peso por lote', 5.7,TRUE),
+	('Valor em peso por lote', 3.9,TRUE),
+	('Valor em peso por lote', 1.4,TRUE);
 
 
 --Inserção de valores na tabela de produtos(tb_product)
@@ -52,14 +76,14 @@ VALUES
 
 
 --Vai inserir preços na tabela de valores
-INSERT INTO tb_value(vl_cost,vl_sale,status)
+INSERT INTO tb_buy(pr_buy,status)
 VALUES
-	(1.00,1.50,TRUE),
-	(1.50,2.50,TRUE),
-	(2.50,3.50,TRUE),
-	(3.50,5.00,TRUE),
-	(10.00,15.00,TRUE),
-	(15.00,20.00,TRUE);
+	('Compra a vista','Compra feita diretamente do fornecedor.',1.00,TRUE),
+	('Compra a vista','Compra feita diretamente do fornecedor.',1.50,TRUE),
+	('Compra a vista','Compra feita diretamente do fornecedor.',2.50,TRUE),
+	('Compra a vista','Compra feita diretamente do fornecedor.',3.50,TRUE),
+	('Compra a prazo','Compra parcelada.',10.00,TRUE),
+	('Compra a prazo','Compra parcelada.',15.00,TRUE);
 
 
 --Vai inserir dados referentes ao relacionamento entre a tabela tb_product e tb_category
@@ -103,7 +127,7 @@ VALUES
 
 	
 --Vai inserir a relação entre a tabela de produtos e preços
-INSERT INTO rl_product_value(id_product,id_value, dt_initial, dt_final)
+INSERT INTO rl_product_buy(id_product,id_buy, dt_initial, dt_final)
 VALUES
 	(1,1,'2022-07-01 12:00:00','2022-08-17 19:45:00'),
 	(2,1,'2022-07-01 12:00:00','2022-08-17 19:45:00'),

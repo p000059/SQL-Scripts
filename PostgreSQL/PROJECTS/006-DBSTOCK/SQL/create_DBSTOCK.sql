@@ -1,9 +1,29 @@
 
-CREATE TABLE tb_value (
+CREATE TABLE tb_type_input_stock(
     id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
-    co_value BIGSERIAL NOT NULL UNIQUE,
-    vl_cost REAL NOT NULL,
-    vl_sale REAL NOT NULL,
+    nm_type VARCHAR(40),
+    status BOOLEAN NOT NULL
+);
+
+CREATE TABLE tb_input_stock(
+    id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
+    co_input BIGSERIAL NOT NULL UNIQUE,
+    nm_input VARCHAR(40) NOT NULL,
+    ds_input VARCHAR(300) NOT NULL,
+    id_type_input_stock BIGINT NOT NULL,
+    nr_input_unity INTEGER NOT NULL,
+    nr_input_lot INTEGER NOT NULL,
+    status BOOLEAN NOT NULL,
+
+    FOREIGN KEY(id_type_input_stock) REFERENCES tb_type_input_stock(id)
+);
+
+CREATE TABLE tb_buy (
+    id BIGSERIAL NOT NULL UNIQUE PRIMARY KEY,
+    co_buy BIGSERIAL NOT NULL UNIQUE,
+    nm_buy VARCHAR(40) NOT NULL,
+    ds_buy VARCHAR(300) NOT NULL,
+    pr_buy MONEY NOT NULL,
     status BOOLEAN NOT NULL
 );
 
@@ -47,6 +67,16 @@ CREATE TABLE tb_product (
     status BOOLEAN NOT NULL
 );
 
+CREATE TABLE rl_input_stock_buy(
+    id_buy BIGINT NOT NULL,
+    id_input_stock BIGINT NOT NULL,
+    dt_initial TIMESTAMP NOT NULL,
+    dt_final TIMESTAMP,
+
+    FOREIGN KEY (id_buy) REFERENCES tb_buy (id),
+    FOREIGN KEY (id_input_stock) REFERENCES tb_input_stock(id)
+);
+
 CREATE TABLE rl_product_amount (
     id_product BIGINT NOT NULL,
     id_amount BIGINT NOT NULL,
@@ -57,14 +87,14 @@ CREATE TABLE rl_product_amount (
     FOREIGN KEY (id_amount) REFERENCES tb_amount(id)
 );
 
-CREATE TABLE rl_product_value (
+CREATE TABLE rl_product_buy (
     id_product BIGINT NOT NULL,
-    id_value BIGINT NOT NULL,
+    id_buy BIGINT NOT NULL,
    	dt_initial TIMESTAMP NOT NULL,
     dt_final TIMESTAMP,
 
     FOREIGN KEY (id_product) REFERENCES tb_product (id),
-    FOREIGN KEY (id_value) REFERENCES tb_value(id)
+    FOREIGN KEY (id_buy) REFERENCES tb_buy(id)
 );
 
 CREATE TABLE rl_category_product (
