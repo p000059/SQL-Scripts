@@ -34,10 +34,10 @@
     <column id="COL8" populated="true" UUID="d08e2395-34e3-438d-aa8e-fce8c6e616b8" autoIncrement="false" autoIncrementSequenceName="tb_document_tp_document_seq" defaultValue="" name="type" nullable="1" physicalName="type" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL9" populated="true" UUID="c978343e-2927-4e9a-9ea6-350c24e3eb08" autoIncrement="false" autoIncrementSequenceName="tb_type_document_dt_type_document_emission_seq" defaultValue="" name="date_emission" nullable="0" physicalName="date_emission" precision="8" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+    <column id="COL9" populated="true" UUID="c978343e-2927-4e9a-9ea6-350c24e3eb08" autoIncrement="false" autoIncrementSequenceName="tb_type_document_dt_type_document_emission_seq" defaultValue="" name="date_emission" nullable="0" physicalName="date_emission" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
      <remarks></remarks>
     </column>
-    <column id="COL10" populated="true" UUID="92fd0a53-1862-48a3-8175-115968e6f3b0" autoIncrement="false" autoIncrementSequenceName="tb_type_document_dt_type_document_validity_seq" defaultValue="" name="date_validity" nullable="1" physicalName="date_validity" precision="8" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+    <column id="COL10" populated="true" UUID="92fd0a53-1862-48a3-8175-115968e6f3b0" autoIncrement="false" autoIncrementSequenceName="tb_type_document_dt_type_document_validity_seq" defaultValue="" name="date_validity" nullable="1" physicalName="date_validity" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
      <remarks></remarks>
     </column>
     <column id="COL11" populated="true" UUID="088d054f-f4dc-43f1-b8bc-511a1564e6b2" autoIncrement="false" autoIncrementSequenceName="tb_document_st_documento_seq" defaultValue="" name="status" nullable="0" physicalName="status" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="16" userDefinedTypeUUID="a26374aa-3026-4bb8-b564-eb2e186dfa5d" >

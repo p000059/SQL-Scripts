@@ -22,16 +22,16 @@
     <column id="COL4" populated="true" UUID="18a4f130-4233-4361-87d4-81e9ec5bbb36" autoIncrement="false" autoIncrementSequenceName="tb_type_document_name_seq" defaultValue="" name="name" nullable="0" physicalName="name" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL5" populated="true" UUID="20d1b588-4abe-44f7-b025-31e83053eec9" autoIncrement="false" autoIncrementSequenceName="tb_type_document_sg_type_document_seq" defaultValue="" name="acronym" nullable="0" physicalName="acronym" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL5" populated="true" UUID="9bc3fca5-72f8-48fa-b40a-d4ecb7057e3e" autoIncrement="false" autoIncrementSequenceName="tb_type_document_ds_documento_seq" defaultValue="" name="description" nullable="0" physicalName="description" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL6" populated="true" UUID="9bc3fca5-72f8-48fa-b40a-d4ecb7057e3e" autoIncrement="false" autoIncrementSequenceName="tb_type_document_ds_documento_seq" defaultValue="" name="description" nullable="0" physicalName="description" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL6" populated="true" UUID="727d6f82-f465-4487-9027-61cb9bdb2dc1" autoIncrement="false" autoIncrementSequenceName="tb_document_nr_document_seq" defaultValue="" name="number" nullable="0" physicalName="number" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL7" populated="true" UUID="727d6f82-f465-4487-9027-61cb9bdb2dc1" autoIncrement="false" autoIncrementSequenceName="tb_document_nr_document_seq" defaultValue="" name="number" nullable="0" physicalName="number" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL7" populated="true" UUID="d08e2395-34e3-438d-aa8e-fce8c6e616b8" autoIncrement="false" autoIncrementSequenceName="tb_document_tp_document_seq" defaultValue="" name="type" nullable="1" physicalName="type" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL8" populated="true" UUID="d08e2395-34e3-438d-aa8e-fce8c6e616b8" autoIncrement="false" autoIncrementSequenceName="tb_document_tp_document_seq" defaultValue="" name="type" nullable="1" physicalName="type" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL8" populated="true" UUID="20d1b588-4abe-44f7-b025-31e83053eec9" autoIncrement="false" autoIncrementSequenceName="tb_type_document_sg_type_document_seq" defaultValue="" name="acronym" nullable="0" physicalName="acronym" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL9" populated="true" UUID="c978343e-2927-4e9a-9ea6-350c24e3eb08" autoIncrement="false" autoIncrementSequenceName="tb_type_document_dt_type_document_emission_seq" defaultValue="" name="date_emission" nullable="0" physicalName="date_emission" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
